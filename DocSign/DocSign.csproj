@@ -1,0 +1,2126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.2.6.1\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.6.1\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E3F109E1-4747-41C5-BBFB-23EE1ABDE49E}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DocSign</RootNamespace>
+    <AssemblyName>DocSign</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TypeScriptToolsVersion>2.8</TypeScriptToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.1.0, Culture=neutral, PublicKeyToken=0e99375e54769942, processorArchitecture=MSIL">
+      <HintPath>..\packages\Portable.BouncyCastle.1.8.1.3\lib\net40\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging, Version=3.4.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Logging.3.4.1\lib\net40\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging.Core, Version=3.4.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Logging.Core.3.4.1\lib\net40\Common.Logging.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DocuSign.eSign, Version=3.1.1.0, Culture=neutral, PublicKeyToken=7fca6fcbbc219ede, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocuSign.eSign.dll.3.1.1\lib\net45\DocuSign.eSign.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.barcodes, Version=7.1.4.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.4\lib\net40\itext.barcodes.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.forms, Version=7.1.4.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.4\lib\net40\itext.forms.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.io, Version=7.1.4.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.4\lib\net40\itext.io.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.kernel, Version=7.1.4.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.4\lib\net40\itext.kernel.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.layout, Version=7.1.4.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.4\lib\net40\itext.layout.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.pdfa, Version=7.1.4.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.4\lib\net40\itext.pdfa.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.sign, Version=7.1.4.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.4\lib\net40\itext.sign.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.styledxmlparser, Version=7.1.4.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.4\lib\net40\itext.styledxmlparser.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.svg, Version=7.1.4.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.4\lib\net40\itext.svg.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13\lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="RestSharp, Version=100.0.0.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharpSigned.105.2.3\lib\net46\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.IdentityModel.Tokens.Jwt, Version=4.0.20622.1351, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IdentityModel.Tokens.Jwt.4.0.2.206221351\lib\net45\System.IdentityModel.Tokens.Jwt.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.2.0.20126.16343\lib\net40\System.Net.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Extensions, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.Formatting.Extension.5.2.3.0\lib\System.Net.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.Formatting.Extension.5.2.3.0\lib\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives, Version=4.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.Formatting.Extension.5.2.3.0\lib\System.Net.Http.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.2.0.20126.16343\lib\net40\System.Net.Http.WebRequest.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.4\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.4\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Diagnostics.DiagnosticSource">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.4.1\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.TelemetryCorrelation">
+      <HintPath>..\packages\Microsoft.AspNet.TelemetryCorrelation.1.0.0\lib\net45\Microsoft.AspNet.TelemetryCorrelation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.5.1\lib\net46\Microsoft.ApplicationInsights.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.4.0\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.5.1\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.5.1\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.5.1\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.5.1\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.5.1\lib\net45\Microsoft.AI.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Code\CustomMembershipProvider.cs" />
+    <Compile Include="Areas\Admin\Code\CustomRoleProvider.cs" />
+    <Compile Include="Areas\Admin\Controllers\DocumentsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
+    <Compile Include="Areas\Admin\Controllers\MessagesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\PDFController.cs" />
+    <Compile Include="Areas\Admin\Controllers\PositionsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SignaturesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\UsersController.cs" />
+    <Compile Include="Content\WebViewer\lib\ui-legacy\AnnotationController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Document.cs">
+      <DependentUpon>SignDBContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\e_Mess.cs">
+      <DependentUpon>SignDBContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\InvoiceModel.cs" />
+    <Compile Include="Models\Position.cs">
+      <DependentUpon>SignDBContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Signature.cs">
+      <DependentUpon>SignDBContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SignDBContext.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SignDBContext.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SignDBContext.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SignDBContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SignDBContext.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SignDBContext.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\User.cs">
+      <DependentUpon>SignDBContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Content\admin_t\data\flot-data.js" />
+    <Content Include="Areas\Admin\Content\admin_t\data\morris-data.js" />
+    <Content Include="Areas\Admin\Content\admin_t\dist\css\sb-admin-2.css" />
+    <Content Include="Areas\Admin\Content\admin_t\dist\css\sb-admin-2.min.css" />
+    <Content Include="Areas\Admin\Content\admin_t\dist\js\sb-admin-2.js" />
+    <Content Include="Areas\Admin\Content\admin_t\dist\js\sb-admin-2.min.js" />
+    <Content Include="Areas\Admin\Content\admin_t\gulpfile.js" />
+    <Content Include="Areas\Admin\Content\admin_t\index.html" />
+    <Content Include="Areas\Admin\Content\admin_t\js\sb-admin-2.js" />
+    <Content Include="Areas\Admin\Content\admin_t\pages\blank.html" />
+    <Content Include="Areas\Admin\Content\admin_t\pages\buttons.html" />
+    <Content Include="Areas\Admin\Content\admin_t\pages\flot.html" />
+    <Content Include="Areas\Admin\Content\admin_t\pages\forms.html" />
+    <Content Include="Areas\Admin\Content\admin_t\pages\grid.html" />
+    <Content Include="Areas\Admin\Content\admin_t\pages\icons.html" />
+    <Content Include="Areas\Admin\Content\admin_t\pages\index.html" />
+    <Content Include="Areas\Admin\Content\admin_t\pages\login.html" />
+    <Content Include="Areas\Admin\Content\admin_t\pages\morris.html" />
+    <Content Include="Areas\Admin\Content\admin_t\pages\notifications.html" />
+    <Content Include="Areas\Admin\Content\admin_t\pages\panels-wells.html" />
+    <Content Include="Areas\Admin\Content\admin_t\pages\tables.html" />
+    <Content Include="Areas\Admin\Content\admin_t\pages\typography.html" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\bootstrap-social\bootstrap-social.css" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\bootstrap\css\bootstrap.css" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\bootstrap\js\bootstrap.js" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\datatables-plugins\dataTables.bootstrap.css" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\datatables-plugins\dataTables.bootstrap.js" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\datatables-plugins\dataTables.bootstrap.min.js" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\datatables-plugins\index.html" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\datatables-responsive\dataTables.responsive.css" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\datatables-responsive\dataTables.responsive.js" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\datatables\css\dataTables.bootstrap.css" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\datatables\css\dataTables.bootstrap.min.css" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\datatables\css\dataTables.bootstrap4.css" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\datatables\css\dataTables.bootstrap4.min.css" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\datatables\css\dataTables.foundation.css" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\datatables\css\dataTables.foundation.min.css" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\datatables\css\dataTables.jqueryui.css" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\datatables\css\dataTables.jqueryui.min.css" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\datatables\css\dataTables.material.css" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\datatables\css\dataTables.material.min.css" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\datatables\css\dataTables.semanticui.css" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\datatables\css\dataTables.semanticui.min.css" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\datatables\css\dataTables.uikit.css" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\datatables\css\dataTables.uikit.min.css" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\datatables\css\jquery.dataTables.css" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\datatables\css\jquery.dataTables.min.css" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\datatables\css\jquery.dataTables_themeroller.css" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\datatables\images\favicon.ico" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\datatables\images\sort_asc.png" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\datatables\images\sort_asc_disabled.png" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\datatables\images\sort_both.png" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\datatables\images\sort_desc.png" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\datatables\images\sort_desc_disabled.png" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\datatables\js\dataTables.bootstrap.js" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\datatables\js\dataTables.bootstrap.min.js" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\datatables\js\dataTables.bootstrap4.js" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\datatables\js\dataTables.bootstrap4.min.js" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\datatables\js\dataTables.foundation.js" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\datatables\js\dataTables.foundation.min.js" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\datatables\js\dataTables.jqueryui.js" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\datatables\js\dataTables.jqueryui.min.js" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\datatables\js\dataTables.material.js" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\datatables\js\dataTables.material.min.js" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\datatables\js\dataTables.semanticui.js" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\datatables\js\dataTables.semanticui.min.js" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\datatables\js\dataTables.uikit.js" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\datatables\js\dataTables.uikit.min.js" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\datatables\js\jquery.dataTables.js" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\datatables\js\jquery.dataTables.min.js" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\datatables\js\jquery.js" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\flot-tooltip\jquery.flot.tooltip.js" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\flot-tooltip\jquery.flot.tooltip.min.js" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\flot-tooltip\jquery.flot.tooltip.source.js" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\flot\excanvas.js" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\flot\excanvas.min.js" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\flot\jquery.colorhelpers.js" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\flot\jquery.flot.canvas.js" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\flot\jquery.flot.categories.js" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\flot\jquery.flot.crosshair.js" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\flot\jquery.flot.errorbars.js" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\flot\jquery.flot.fillbetween.js" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\flot\jquery.flot.image.js" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\flot\jquery.flot.js" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\flot\jquery.flot.navigate.js" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\flot\jquery.flot.pie.js" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\flot\jquery.flot.resize.js" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\flot\jquery.flot.selection.js" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\flot\jquery.flot.stack.js" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\flot\jquery.flot.symbol.js" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\flot\jquery.flot.threshold.js" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\flot\jquery.flot.time.js" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\flot\jquery.js" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\font-awesome\css\font-awesome.css" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\font-awesome\HELP-US-OUT.txt" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\jquery\jquery.js" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\jquery\jquery.min.js" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\metisMenu\metisMenu.css" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\metisMenu\metisMenu.js" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\metisMenu\metisMenu.min.css" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\metisMenu\metisMenu.min.js" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\morrisjs\morris.css" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\morrisjs\morris.js" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\morrisjs\morris.min.js" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\raphael\raphael.js" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\raphael\raphael.min.js" />
+    <Content Include="Areas\Admin\Content\html2canvas.js" />
+    <Content Include="Areas\Admin\Content\JavaScript.js" />
+    <Content Include="Areas\Admin\Content\Login\css\main.css" />
+    <Content Include="Areas\Admin\Content\Login\css\util.css" />
+    <Content Include="Areas\Admin\Content\Login\fonts\font-awesome-4.7.0\css\font-awesome.css" />
+    <Content Include="Areas\Admin\Content\Login\fonts\font-awesome-4.7.0\css\font-awesome.min.css" />
+    <Content Include="Areas\Admin\Content\Login\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
+    <Content Include="Areas\Admin\Content\Login\fonts\font-awesome-4.7.0\HELP-US-OUT.txt" />
+    <Content Include="Areas\Admin\Content\Login\fonts\Linearicons-Free-v1.0.0\icon-font.min.css" />
+    <Content Include="Areas\Admin\Content\Login\fonts\Linearicons-Free-v1.0.0\WebFont\Linearicons-Free.svg" />
+    <Content Include="Areas\Admin\Content\Login\images\bg-01.jpg" />
+    <Content Include="Areas\Admin\Content\Login\images\icons\favicon.ico" />
+    <Content Include="Areas\Admin\Content\Login\images\icons\map-marker.png" />
+    <Content Include="Areas\Admin\Content\Login\js\main.js" />
+    <Content Include="Areas\Admin\Content\Login\js\map-custom.js" />
+    <Content Include="Areas\Admin\Content\Login\vendor\animate\animate.css" />
+    <Content Include="Areas\Admin\Content\Login\vendor\animsition\css\animsition.css" />
+    <Content Include="Areas\Admin\Content\Login\vendor\animsition\css\animsition.min.css" />
+    <Content Include="Areas\Admin\Content\Login\vendor\animsition\js\animsition.js" />
+    <Content Include="Areas\Admin\Content\Login\vendor\animsition\js\animsition.min.js" />
+    <Content Include="Areas\Admin\Content\Login\vendor\bootstrap\css\bootstrap-grid.css" />
+    <Content Include="Areas\Admin\Content\Login\vendor\bootstrap\css\bootstrap-grid.min.css" />
+    <Content Include="Areas\Admin\Content\Login\vendor\bootstrap\css\bootstrap-reboot.css" />
+    <Content Include="Areas\Admin\Content\Login\vendor\bootstrap\css\bootstrap-reboot.min.css" />
+    <Content Include="Areas\Admin\Content\Login\vendor\bootstrap\css\bootstrap.css" />
+    <Content Include="Areas\Admin\Content\Login\vendor\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Areas\Admin\Content\Login\vendor\bootstrap\js\bootstrap.js" />
+    <Content Include="Areas\Admin\Content\Login\vendor\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Areas\Admin\Content\Login\vendor\bootstrap\js\popper.js" />
+    <Content Include="Areas\Admin\Content\Login\vendor\bootstrap\js\popper.min.js" />
+    <Content Include="Areas\Admin\Content\Login\vendor\bootstrap\js\tooltip.js" />
+    <Content Include="Areas\Admin\Content\Login\vendor\countdowntime\countdowntime.js" />
+    <Content Include="Areas\Admin\Content\Login\vendor\css-hamburgers\hamburgers.css" />
+    <Content Include="Areas\Admin\Content\Login\vendor\css-hamburgers\hamburgers.min.css" />
+    <Content Include="Areas\Admin\Content\Login\vendor\daterangepicker\daterangepicker.css" />
+    <Content Include="Areas\Admin\Content\Login\vendor\daterangepicker\daterangepicker.js" />
+    <Content Include="Areas\Admin\Content\Login\vendor\daterangepicker\moment.js" />
+    <Content Include="Areas\Admin\Content\Login\vendor\daterangepicker\moment.min.js" />
+    <Content Include="Areas\Admin\Content\Login\vendor\jquery\jquery-3.2.1.min.js" />
+    <Content Include="Areas\Admin\Content\Login\vendor\perfect-scrollbar\perfect-scrollbar.css" />
+    <Content Include="Areas\Admin\Content\Login\vendor\perfect-scrollbar\perfect-scrollbar.min.js" />
+    <Content Include="Areas\Admin\Content\Login\vendor\select2\select2.css" />
+    <Content Include="Areas\Admin\Content\Login\vendor\select2\select2.js" />
+    <Content Include="Areas\Admin\Content\Login\vendor\select2\select2.min.css" />
+    <Content Include="Areas\Admin\Content\Login\vendor\select2\select2.min.js" />
+    <Content Include="Areas\Admin\Content\StyleSheet1.css" />
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\build\pdf.js" />
+    <Content Include="Content\build\pdf.worker.js" />
+    <Content Include="Content\image\background_index.jpg" />
+    <Content Include="Content\image\footer\geometry.png" />
+    <Content Include="Content\image\footer\icon1.png" />
+    <Content Include="Content\image\footer\icon2.png" />
+    <Content Include="Content\image\footer\icon3.png" />
+    <Content Include="Content\image\footer\social1.png" />
+    <Content Include="Content\image\footer\social1hover.png" />
+    <Content Include="Content\image\footer\social3.png" />
+    <Content Include="Content\image\footer\social3hover.png" />
+    <Content Include="Content\image\footer\social4.png" />
+    <Content Include="Content\image\footer\social4hover.png" />
+    <Content Include="Content\image\footer\social5.png" />
+    <Content Include="Content\image\footer\social5hover.png" />
+    <Content Include="Content\image\index-editor.png" />
+    <Content Include="Content\image\index-sign.jpg" />
+    <Content Include="Content\image\index-template.png" />
+    <Content Include="Content\image\logo.png" />
+    <Content Include="Content\image\profile\43604294_1180505865433986_8249701675246288896_n.jpg" />
+    <Content Include="Content\OwlCarousel2-2.3.4\dist\assets\ajax-loader.gif" />
+    <Content Include="Content\OwlCarousel2-2.3.4\dist\assets\owl.carousel.css" />
+    <Content Include="Content\OwlCarousel2-2.3.4\dist\assets\owl.carousel.min.css" />
+    <Content Include="Content\OwlCarousel2-2.3.4\dist\assets\owl.theme.default.css" />
+    <Content Include="Content\OwlCarousel2-2.3.4\dist\assets\owl.theme.default.min.css" />
+    <Content Include="Content\OwlCarousel2-2.3.4\dist\assets\owl.theme.green.css" />
+    <Content Include="Content\OwlCarousel2-2.3.4\dist\assets\owl.theme.green.min.css" />
+    <Content Include="Content\OwlCarousel2-2.3.4\dist\assets\owl.video.play.png" />
+    <Content Include="Content\OwlCarousel2-2.3.4\dist\owl.carousel.js" />
+    <Content Include="Content\OwlCarousel2-2.3.4\dist\owl.carousel.min.js" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs\assets\css\animate.css" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs\assets\css\docs.theme.min.css" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs\assets\img\bird_blue_32.png" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs\assets\img\download.png" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs\assets\img\feature-drag.png" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs\assets\img\feature-modern.png" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs\assets\img\feature-module.png" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs\assets\img\feature-options.png" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs\assets\img\feature-responsive.png" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs\assets\img\feature-zombie.png" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs\assets\img\owl-logo.png" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs\assets\img\twitter_25.png" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs\assets\js\app.js" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs\assets\js\foundation.min.js" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs\assets\owlcarousel\assets\ajax-loader.gif" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs\assets\owlcarousel\assets\owl.carousel.css" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs\assets\owlcarousel\assets\owl.carousel.min.css" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs\assets\owlcarousel\assets\owl.theme.default.css" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs\assets\owlcarousel\assets\owl.theme.default.min.css" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs\assets\owlcarousel\assets\owl.theme.green.css" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs\assets\owlcarousel\assets\owl.theme.green.min.css" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs\assets\owlcarousel\assets\owl.video.play.png" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs\assets\owlcarousel\owl.carousel.js" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs\assets\owlcarousel\owl.carousel.min.js" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs\assets\vendors\foundation.min.js" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs\assets\vendors\highlight.js" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs\assets\vendors\jquery.min.js" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs\assets\vendors\jquery.mousewheel.min.js" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs\demos\animate.html" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs\demos\autoheight.html" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs\demos\autoplay.html" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs\demos\autowidth.html" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs\demos\basic.html" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs\demos\center.html" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs\demos\demos.html" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs\demos\events.html" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs\demos\lazyLoad.html" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs\demos\merge.html" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs\demos\mousewheel.html" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs\demos\responsive.html" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs\demos\rtl.html" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs\demos\stagepadding.html" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs\demos\test.html" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs\demos\urlhashnav.html" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs\demos\video.html" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs\docs\api-classes.html" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs\docs\api-events.html" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs\docs\api-options.html" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs\docs\dev-buildin-plugins.html" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs\docs\dev-external.html" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs\docs\dev-plugin-api.html" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs\docs\dev-styles.html" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs\docs\started-faq.html" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs\docs\started-installation.html" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs\docs\started-welcome.html" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs\docs\support-changelog.html" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs\docs\support-contact.html" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs\docs\support-contributing.html" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs\index.html" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs_src\assets\css\animate.css" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs_src\assets\img\bird_blue_32.png" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs_src\assets\img\download.png" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs_src\assets\img\feature-drag.png" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs_src\assets\img\feature-modern.png" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs_src\assets\img\feature-module.png" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs_src\assets\img\feature-options.png" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs_src\assets\img\feature-responsive.png" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs_src\assets\img\feature-zombie.png" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs_src\assets\img\owl-logo.png" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs_src\assets\img\twitter_25.png" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs_src\assets\js\app.js" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs_src\assets\js\foundation.min.js" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs_src\assets\vendors\foundation.min.js" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs_src\assets\vendors\highlight.js" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs_src\assets\vendors\jquery.min.js" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs_src\assets\vendors\jquery.mousewheel.min.js" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs_src\helpers\modulo.js" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs_src\helpers\test.js" />
+    <Content Include="Content\OwlCarousel2-2.3.4\Gruntfile.js" />
+    <Content Include="Content\OwlCarousel2-2.3.4\src\img\ajax-loader.gif" />
+    <Content Include="Content\OwlCarousel2-2.3.4\src\img\owl.video.play.png" />
+    <Content Include="Content\OwlCarousel2-2.3.4\src\js\owl.animate.js" />
+    <Content Include="Content\OwlCarousel2-2.3.4\src\js\owl.autoheight.js" />
+    <Content Include="Content\OwlCarousel2-2.3.4\src\js\owl.autoplay.js" />
+    <Content Include="Content\OwlCarousel2-2.3.4\src\js\owl.autorefresh.js" />
+    <Content Include="Content\OwlCarousel2-2.3.4\src\js\owl.carousel.js" />
+    <Content Include="Content\OwlCarousel2-2.3.4\src\js\owl.hash.js" />
+    <Content Include="Content\OwlCarousel2-2.3.4\src\js\owl.lazyload.js" />
+    <Content Include="Content\OwlCarousel2-2.3.4\src\js\owl.navigation.js" />
+    <Content Include="Content\OwlCarousel2-2.3.4\src\js\owl.support.js" />
+    <Content Include="Content\OwlCarousel2-2.3.4\src\js\owl.support.modernizr.js" />
+    <Content Include="Content\OwlCarousel2-2.3.4\src\js\owl.video.js" />
+    <Content Include="Content\OwlCarousel2-2.3.4\test\index.html" />
+    <Content Include="Content\OwlCarousel2-2.3.4\test\unit\autoplay.js" />
+    <Content Include="Content\OwlCarousel2-2.3.4\test\unit\core.js" />
+    <Content Include="Content\WebViewer\lib\core\assets\1px.png" />
+    <Content Include="Content\WebViewer\lib\core\assets\dragginghand.cur" />
+    <Content Include="Content\WebViewer\lib\core\assets\dragginghand.png" />
+    <Content Include="Content\WebViewer\lib\core\assets\hand.cur" />
+    <Content Include="Content\WebViewer\lib\core\assets\hand.png" />
+    <Content Include="Content\WebViewer\lib\core\CoreControls.js" />
+    <Content Include="Content\WebViewer\lib\core\CoreWorker.js" />
+    <Content Include="Content\WebViewer\lib\core\CORSWorker.js" />
+    <Content Include="Content\WebViewer\lib\core\DecryptWorker.js" />
+    <Content Include="Content\WebViewer\lib\core\external\decode.min.js" />
+    <Content Include="Content\WebViewer\lib\core\external\html2canvas.min.js" />
+    <Content Include="Content\WebViewer\lib\core\external\jquery-3.2.1.min.js" />
+    <Content Include="Content\WebViewer\lib\core\external\pako_inflate.min.js" />
+    <Content Include="Content\WebViewer\lib\core\external\Promise.js" />
+    <Content Include="Content\WebViewer\lib\core\external\rawinflate.js" />
+    <Content Include="Content\WebViewer\lib\core\office\OfficeWorker.js" />
+    <Content Include="Content\WebViewer\lib\core\pdf\full\PDFNetC.js" />
+    <Content Include="Content\WebViewer\lib\core\pdf\full\PDFNetCWasm.js" />
+    <Content Include="Content\WebViewer\lib\core\pdf\lean\PDFNetC.js" />
+    <Content Include="Content\WebViewer\lib\core\pdf\lean\PDFNetCWasm.js" />
+    <Content Include="Content\WebViewer\lib\core\pdf\PDFNet.js" />
+    <Content Include="Content\WebViewer\lib\core\pdf\pdfnet.res" />
+    <Content Include="Content\WebViewer\lib\core\pdf\PDFworker.js" />
+    <Content Include="Content\WebViewer\lib\core\pdf\ResizableWorker.js" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\AnnotationEdit.css" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\AnnotationEdit.js" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\annotationHandler.js" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\annotationHandler.php" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\BaseReaderControl.js" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\ControlUtils.js" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\defaultScriptExtension.js" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\defaultStyleExtension.css" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\docViewer.css" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\Autolinker.min.js" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\context.js" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\context.standalone.css" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\drop\css\drop-theme-arrows-bounce-dark.css" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\drop\css\drop-theme-arrows-bounce.css" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\drop\css\drop-theme-arrows.css" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\drop\css\drop-theme-basic.css" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\drop\css\drop-theme-hubspot-popovers.css" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\drop\css\extras\drop-twitter-bootstrap.css" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\drop\drop.js" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\drop\drop.min.js" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\drop\js\drop.js" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\fastclick.js" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\FileSaver.min.js" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\html2canvas.min.js" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\i18next-1.6.0.min.js" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\images\glyphicons_072_bookmark.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\images\loading.gif" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\images\treeview-default-line.gif" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\images\treeview-default.gif" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery-3.2.1.min.js" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery-migrate-3.0.0.min.js" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery-ui\jquery-ui-1.11.1.custom.js" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery-ui\jquery-ui-1.11.1.custom.min.js" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery-ui\themes\cloud\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery-ui\themes\cloud\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery-ui\themes\cloud\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery-ui\themes\cloud\images\ui-bg_glass_65_CBE6EF_1x400.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery-ui\themes\cloud\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery-ui\themes\cloud\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery-ui\themes\cloud\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery-ui\themes\cloud\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery-ui\themes\cloud\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery-ui\themes\cloud\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery-ui\themes\cloud\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery-ui\themes\cloud\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery-ui\themes\cloud\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery-ui\themes\cloud\jquery-ui-1.11.1.custom.css" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery-ui\themes\cloud\jquery-ui-1.11.1.custom.min.css" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.cookie.js" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.doubletap.js" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.flexibleArea.js" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\ajax-loader.gif" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\action-black.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\action-white.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\alert-black.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\alert-white.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\arrow-d-black.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\arrow-d-l-black.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\arrow-d-l-white.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\arrow-d-r-black.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\arrow-d-r-white.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\arrow-d-white.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\arrow-l-black.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\arrow-l-white.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\arrow-r-black.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\arrow-r-white.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\arrow-u-black.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\arrow-u-l-black.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\arrow-u-l-white.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\arrow-u-r-black.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\arrow-u-r-white.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\arrow-u-white.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\audio-black.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\audio-white.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\back-black.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\back-white.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\bars-black.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\bars-white.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\bullets-black.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\bullets-white.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\calendar-black.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\calendar-white.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\camera-black.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\camera-white.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\carat-d-black.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\carat-d-white.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\carat-l-black.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\carat-l-white.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\carat-r-black.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\carat-r-white.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\carat-u-black.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\carat-u-white.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\check-black.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\check-white.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\clock-black.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\clock-white.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\cloud-black.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\cloud-white.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\comment-black.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\comment-white.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\delete-black.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\delete-white.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\edit-black.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\edit-white.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\eye-black.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\eye-white.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\forbidden-black.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\forbidden-white.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\forward-black.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\forward-white.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\gear-black.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\gear-white.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\grid-black.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\grid-white.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\heart-black.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\heart-white.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\home-black.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\home-white.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\info-black.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\info-white.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\location-black.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\location-white.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\lock-black.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\lock-white.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\mail-black.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\mail-white.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\minus-black.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\minus-white.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\navigation-black.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\navigation-white.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\phone-black.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\phone-white.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\plus-black.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\plus-white.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\power-black.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\power-white.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\recycle-black.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\recycle-white.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\refresh-black.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\refresh-white.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\search-black.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\search-white.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\shop-black.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\shop-white.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\star-black.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\star-white.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\tag-black.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\tag-white.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\user-black.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\user-white.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\video-black.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\images\icons-png\video-white.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\jquery.mobile-1.4.4.min.css" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\jquery.mobile-1.4.4.min.js" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\jquery.mobile.custom.structure.min.css" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\jquery.mobile.custom.theme.min.css" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mobile\jquery.mobile.icons-1.4.4.min.css" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.mousewheel.js" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.treeview.css" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\jquery.treeview.js" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\modernizr.custom.js" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\moment.min.js" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\touchr.js" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\turn.js" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\external\xdomain.js" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\formDataHandler.php" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\gulpfile.js" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\legal.txt" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\MobileReaderControl.css" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\MobileReaderControl.html" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\MobileReaderControl.js" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\mobileSetup.js" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\NotesPanel.js" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\pdf\PDFReaderControl.css" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\pdf\PDFReaderControl.js" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\ReaderControl.css" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\ReaderControl.html" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\ReaderControl.js" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\ReaderControlConfig.js" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\Resources\1px.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\Resources\checkmark.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\Resources\color_none.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\Resources\dist\jstree.js" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\Resources\dist\jstree.min.js" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\Resources\dist\themes\default-dark\32px.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\Resources\dist\themes\default-dark\40px.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\Resources\dist\themes\default-dark\style.css" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\Resources\dist\themes\default-dark\style.min.css" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\Resources\dist\themes\default-dark\throbber.gif" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\Resources\dist\themes\default\32px.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\Resources\dist\themes\default\40px.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\Resources\dist\themes\default\style.css" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\Resources\dist\themes\default\style.min.css" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\Resources\dist\themes\default\throbber.gif" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\Resources\icons\css\controls.css" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\Resources\icons\css\customicons.css" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\Resources\icons\css\glyphicons.css" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\Resources\icons\css\style.css" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\Resources\icons\fonts\custom.svg" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\Resources\icons\fonts\glyphicons-regular.svg" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\Resources\icons\images\glyphicons-white.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\Resources\icons\images\glyphicons-white.svg" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\Resources\icons\images\glyphicons.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\Resources\icons\images\glyphicons.svg" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\Resources\icon_credits.txt" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\Resources\minus.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\Resources\minus_circle.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\Resources\ok_circle.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\Resources\plus.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\Resources\user.png" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\WebViewerInterface.js" />
+    <Content Include="Content\WebViewer\lib\ui\assets\ic_annotations_black_24px.svg" />
+    <Content Include="Content\WebViewer\lib\ui\assets\ic_annotation_arrow_black_24px.svg" />
+    <Content Include="Content\WebViewer\lib\ui\assets\ic_annotation_callout_black_24px.svg" />
+    <Content Include="Content\WebViewer\lib\ui\assets\ic_annotation_circle_black_24px.svg" />
+    <Content Include="Content\WebViewer\lib\ui\assets\ic_annotation_cloud_black_24px.svg" />
+    <Content Include="Content\WebViewer\lib\ui\assets\ic_annotation_eraser_black_24px.svg" />
+    <Content Include="Content\WebViewer\lib\ui\assets\ic_annotation_freehand_black_24px.svg" />
+    <Content Include="Content\WebViewer\lib\ui\assets\ic_annotation_freetext_black_24px.svg" />
+    <Content Include="Content\WebViewer\lib\ui\assets\ic_annotation_free_highlight_black_24px.svg" />
+    <Content Include="Content\WebViewer\lib\ui\assets\ic_annotation_highlight_black_24px.svg" />
+    <Content Include="Content\WebViewer\lib\ui\assets\ic_annotation_image_black_24px.svg" />
+    <Content Include="Content\WebViewer\lib\ui\assets\ic_annotation_line_black_24px.svg" />
+    <Content Include="Content\WebViewer\lib\ui\assets\ic_annotation_polygon_black_24px.svg" />
+    <Content Include="Content\WebViewer\lib\ui\assets\ic_annotation_polyline_black_24px.svg" />
+    <Content Include="Content\WebViewer\lib\ui\assets\ic_annotation_redact_black_24px.svg" />
+    <Content Include="Content\WebViewer\lib\ui\assets\ic_annotation_ruler_black_24px.svg" />
+    <Content Include="Content\WebViewer\lib\ui\assets\ic_annotation_signature_black_24px.svg" />
+    <Content Include="Content\WebViewer\lib\ui\assets\ic_annotation_square_black_24px.svg" />
+    <Content Include="Content\WebViewer\lib\ui\assets\ic_annotation_squiggly_black_24px.svg" />
+    <Content Include="Content\WebViewer\lib\ui\assets\ic_annotation_stamp_black_24px.svg" />
+    <Content Include="Content\WebViewer\lib\ui\assets\ic_annotation_sticky_note_black_24px.svg" />
+    <Content Include="Content\WebViewer\lib\ui\assets\ic_annotation_strikeout_black_24px.svg" />
+    <Content Include="Content\WebViewer\lib\ui\assets\ic_annotation_underline_black_24px.svg" />
+    <Content Include="Content\WebViewer\lib\ui\assets\ic_arrow_drop_down_black_24px.svg" />
+    <Content Include="Content\WebViewer\lib\ui\assets\ic_bookmarks_black_24px.svg" />
+    <Content Include="Content\WebViewer\lib\ui\assets\ic_check_black_24px.svg" />
+    <Content Include="Content\WebViewer\lib\ui\assets\ic_chevron_down_black_24px.svg" />
+    <Content Include="Content\WebViewer\lib\ui\assets\ic_chevron_left_black_24px.svg" />
+    <Content Include="Content\WebViewer\lib\ui\assets\ic_chevron_right_black_24px.svg" />
+    <Content Include="Content\WebViewer\lib\ui\assets\ic_chevron_up_black_24px.svg" />
+    <Content Include="Content\WebViewer\lib\ui\assets\ic_close_black_24px.svg" />
+    <Content Include="Content\WebViewer\lib\ui\assets\ic_comment_black_24px.svg" />
+    <Content Include="Content\WebViewer\lib\ui\assets\ic_copy_black_24px.svg" />
+    <Content Include="Content\WebViewer\lib\ui\assets\ic_delete_black_24px.svg" />
+    <Content Include="Content\WebViewer\lib\ui\assets\ic_edit_black_24px.svg" />
+    <Content Include="Content\WebViewer\lib\ui\assets\ic_fit_page_black_24px.svg" />
+    <Content Include="Content\WebViewer\lib\ui\assets\ic_fit_width_black_24px.svg" />
+    <Content Include="Content\WebViewer\lib\ui\assets\ic_font_size_black_24px.svg" />
+    <Content Include="Content\WebViewer\lib\ui\assets\ic_left_sidebar_black_24px.svg" />
+    <Content Include="Content\WebViewer\lib\ui\assets\ic_list_black_24px.svg" />
+    <Content Include="Content\WebViewer\lib\ui\assets\ic_menu_black_24px.svg" />
+    <Content Include="Content\WebViewer\lib\ui\assets\ic_mode_day_black_24px.svg" />
+    <Content Include="Content\WebViewer\lib\ui\assets\ic_mode_night_black_24px.svg" />
+    <Content Include="Content\WebViewer\lib\ui\assets\ic_more_black_24px.svg" />
+    <Content Include="Content\WebViewer\lib\ui\assets\ic_outline_black_24px.svg" />
+    <Content Include="Content\WebViewer\lib\ui\assets\ic_overflow_black_24px.svg" />
+    <Content Include="Content\WebViewer\lib\ui\assets\ic_palette_black_24px.svg" />
+    <Content Include="Content\WebViewer\lib\ui\assets\ic_pan_black_24px.svg" />
+    <Content Include="Content\WebViewer\lib\ui\assets\ic_placeholder_black_24px.svg" />
+    <Content Include="Content\WebViewer\lib\ui\assets\ic_rotate_left_black_24px.svg" />
+    <Content Include="Content\WebViewer\lib\ui\assets\ic_rotate_right_black_24px.svg" />
+    <Content Include="Content\WebViewer\lib\ui\assets\ic_search_black_24px.svg" />
+    <Content Include="Content\WebViewer\lib\ui\assets\ic_select_black_24px.svg" />
+    <Content Include="Content\WebViewer\lib\ui\assets\ic_select_rectangular_black_24px.svg" />
+    <Content Include="Content\WebViewer\lib\ui\assets\ic_thumbnails_black_24px.svg" />
+    <Content Include="Content\WebViewer\lib\ui\assets\ic_thumbnails_grid_black_24px.svg" />
+    <Content Include="Content\WebViewer\lib\ui\assets\ic_viewer_settings_black_24px.svg" />
+    <Content Include="Content\WebViewer\lib\ui\assets\ic_view_mode_continuous_black_24px.svg" />
+    <Content Include="Content\WebViewer\lib\ui\assets\ic_view_mode_cover_black_24px.svg" />
+    <Content Include="Content\WebViewer\lib\ui\assets\ic_view_mode_facing_black_24px.svg" />
+    <Content Include="Content\WebViewer\lib\ui\assets\ic_view_mode_reflow_black_24px.svg" />
+    <Content Include="Content\WebViewer\lib\ui\assets\ic_view_mode_single_black_24px.svg" />
+    <Content Include="Content\WebViewer\lib\ui\assets\ic_zoom_in_black_24px.svg" />
+    <Content Include="Content\WebViewer\lib\ui\assets\ic_zoom_out_black_24px.svg" />
+    <Content Include="Content\WebViewer\lib\ui\assets\pdftron.ico" />
+    <Content Include="Content\WebViewer\lib\ui\assets\webviewer-ui.png" />
+    <Content Include="Content\WebViewer\lib\ui\build\assets\pdftron.ico" />
+    <Content Include="Content\WebViewer\lib\ui\build\index.html" />
+    <Content Include="Content\WebViewer\lib\ui\build\style.css" />
+    <Content Include="Content\WebViewer\lib\ui\build\webviewer-ui.min.js" />
+    <Content Include="Content\WebViewer\lib\ui\dev-server.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\apis\addSearchListener.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\apis\closeDocument.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\apis\disableTool.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\apis\disableTools.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\apis\downloadPdf.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\apis\enableAnnotations.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\apis\enableDownload.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\apis\enableFilePicker.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\apis\enableNotesPanel.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\apis\enablePrint.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\apis\enableTextSelection.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\apis\enableTool.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\apis\enableTools.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\apis\getActions.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\apis\getAnnotationUser.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\apis\getBBAnnotManager.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\apis\getConstants.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\apis\getCurrentPageNumber.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\apis\getFitMode.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\apis\getLayoutMode.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\apis\getPageCount.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\apis\getSelectors.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\apis\getShowSideWindow.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\apis\getSideWindowVisibility.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\apis\getToolMode.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\apis\getZoomLevel.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\apis\goToFirstPage.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\apis\goToLastPage.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\apis\goToNextPage.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\apis\goToPrevPage.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\apis\index.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\apis\isAdminUser.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\apis\isElementDisabled.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\apis\isElementOpen.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\apis\isMobileDevice.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\apis\isReadOnly.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\apis\isToolDisabled.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\apis\loadDocument.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\apis\registerTool.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\apis\removeSearchListener.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\apis\rotateClockwise.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\apis\rotateCounterClockwise.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\apis\saveAnnotations.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\apis\searchText.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\apis\searchTextFull.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\apis\setAdminUser.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\apis\setAnnotationUser.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\apis\setCurrentPageNumber.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\apis\setEngineType.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\apis\setFitMode.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\apis\setHeaderItems.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\apis\setLanguage.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\apis\setLayoutMode.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\apis\setNotesPanelSort.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\apis\setPrintQuality.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\apis\setReadOnly.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\apis\setShowSideWindow.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\apis\setSideWindowVisibility.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\apis\setTheme.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\apis\setToolMode.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\apis\setZoomLevel.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\apis\toggleFullScreen.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\apis\unregisterTool.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\apis\updateOutlines.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\ActionButton\ActionButton.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\ActionButton\index.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\AnnotationPopup\AnnotationPopup.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\AnnotationPopup\index.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\AnnotationStylePopup\AnnotationStylePopup.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\AnnotationStylePopup\index.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\App\App.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\App\index.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\Button\Button.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\Button\index.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\ColorPaletteHeader\ColorPaletteHeader.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\ColorPaletteHeader\index.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\ColorPalette\ColorPalette.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\ColorPalette\index.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\ContextMenuPopup\ContextMenuPopup.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\ContextMenuPopup\index.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\CopyTextHandler\CopyTextHandler.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\CopyTextHandler\index.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\CustomElement\CustomElement.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\CustomElement\index.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\DocumentContainer\DocumentContainer.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\DocumentContainer\index.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\Dropdown\Dropdown.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\Dropdown\index.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\Element\Element.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\Element\index.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\ErrorModal\ErrorModal.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\ErrorModal\index.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\FilePickerHandler\FilePickerHandler.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\FilePickerHandler\index.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\HeaderItems\HeaderItems.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\HeaderItems\index.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\Header\Header.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\Header\index.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\Icon\Icon.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\Icon\index.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\Input\index.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\Input\Input.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\LeftPanelTabs\index.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\LeftPanelTabs\LeftPanelTabs.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\LeftPanel\index.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\LeftPanel\LeftPanel.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\ListSeparator\index.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\ListSeparator\ListSeparator.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\LoadingModal\index.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\LoadingModal\LoadingModal.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\MenuOverlay\index.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\MenuOverlay\MenuOverlay.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\NoteContents\index.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\NoteContents\NoteContents.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\NotePopup\index.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\NotePopup\NotePopup.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\NoteReply\index.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\NoteReply\NoteReply.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\NoteRoot\index.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\NoteRoot\NoteRoot.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\NotesPanel\index.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\NotesPanel\NotesPanel.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\Note\index.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\Note\Note.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\OutlinesPanel\index.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\OutlinesPanel\OutlinesPanel.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\Outline\index.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\Outline\Outline.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\PageNavOverlay\index.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\PageNavOverlay\PageNavOverlay.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\PasswordModal\index.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\PasswordModal\PasswordModal.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\PrintHandler\index.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\PrintHandler\PrintHandler.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\PrintModal\index.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\PrintModal\PrintModal.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\SearchOverlay\index.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\SearchOverlay\SearchOverlay.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\SearchPanel\index.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\SearchPanel\SearchPanel.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\SearchResult\index.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\SearchResult\SearchResult.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\SignatureModal\index.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\SignatureModal\SignatureModal.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\Slider\index.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\Slider\Slider.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\StatefulButton\index.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\StatefulButton\StatefulButton.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\StylePopup\index.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\StylePopup\StylePopup.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\TextPopup\index.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\TextPopup\TextPopup.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\ThumbnailsPanel\index.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\ThumbnailsPanel\ThumbnailsPanel.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\Thumbnail\index.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\Thumbnail\Thumbnail.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\ToggleElementButton\index.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\ToggleElementButton\ToggleElementButton.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\ToolButton\index.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\ToolButton\ToolButton.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\ToolGroupButton\index.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\ToolGroupButton\ToolGroupButton.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\ToolsOverlay\index.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\ToolsOverlay\ToolsOverlay.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\ToolStylePopup\index.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\ToolStylePopup\ToolStylePopup.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\ToolTip\index.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\ToolTip\ToolTip.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\ViewControlsOverlay\index.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\ViewControlsOverlay\ViewControlsOverlay.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\constants\actionPriority.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\constants\annotationColorMap.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\constants\annotationIconMap.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\constants\displayModeObjects.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\constants\fitMode.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\constants\layoutMode.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\constants\slider.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\constants\sortMap.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\constants\supportedFiles.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\constants\toolNameMap.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\constants\types.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\constants\zoomFactors.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\core\addAnnotations.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\core\cancelLoadThumbnail.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\core\canModify.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\core\clearSearchResults.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\core\clearSelection.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\core\closeDocument.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\core\createAnnotationReply.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\core\deleteAnnotations.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\core\deselectAllAnnotations.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\core\deselectAnnotation.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\core\displayAdditionalSearchResult.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\core\displaySearchResult.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\core\drawAnnotations.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\core\drawAnnotationsFromList.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\core\eventListener.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\core\exportAnnotations.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\core\fitToHeight.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\core\fitToPage.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\core\fitToWidth.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\core\fitToZoom.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\core\getAnnotationById.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\core\getAnnotationManager.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\core\getAnnotationsList.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\core\getAnnotationsLoadedPromise.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\core\getCompleteRotation.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\core\getCurrentPage.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\core\getCurrentUser.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\core\getDisplayAuthor.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\core\getDisplayMode.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\core\getDisplayModeObject.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\core\getDocument.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\core\getDocumentViewer.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\core\getFitMode.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\core\getIsAdminUser.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\core\getIsReadOnly.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\core\getOutlines.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\core\getPageHeight.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\core\getPageInfo.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\core\getPageWidth.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\core\getPrintablePDF.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\core\getRotation.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\core\getScrollViewElement.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\core\getSearchMode.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\core\getSelectedAnnotations.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\core\getSelectedText.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\core\getSelectedTextQuads.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\core\getTool.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\core\getToolMode.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\core\getToolModeMap.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\core\getTotalPages.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\core\getZoom.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\core\goToOutline.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\core\hideAnnotations.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\core\index.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\core\isAnnotationSelected.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\core\isContinuousDisplayMode.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\core\jumpToAnnotation.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\core\loadAsync.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\core\loadThumbnailAsync.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\core\pasteCopiedAnnotations.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\core\rotateClockwise.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\core\rotateCounterClockwise.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\core\scrollViewUpdated.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\core\selectAnnotation.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\core\selectAnnotations.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\core\setActiveSearchResult.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\core\setAnnotationStyles.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\core\setCurrentPage.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\core\setCurrentUser.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\core\setDisplayMode.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\core\setInternalAnnotationsTransform.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\core\setIsAdminUser.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\core\setNoteContents.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\core\setOptions.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\core\setPagesUpdatedInternalAnnotationsTransform.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\core\setReadOnly.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\core\setScrollViewElement.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\core\setToolMode.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\core\setViewerElement.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\core\showAnnotations.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\core\textSearchInit.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\core\updateCopiedAnnotations.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\core\zoomTo.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\core\zoomToMouse.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\event-listeners\index.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\event-listeners\onAnnotationSelected.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\event-listeners\onBeforeDocumentLoaded.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\event-listeners\onDisplayModeUpdated.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\event-listeners\onDocumentLoaded.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\event-listeners\onDocumentUnloaded.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\event-listeners\onFitModeUpdated.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\event-listeners\onFullScreenChange.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\event-listeners\onKeyDown.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\event-listeners\onLayoutChanged.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\event-listeners\onPageNumberUpdated.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\event-listeners\onRotationUpdated.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\event-listeners\onStampAnnotationAdded.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\event-listeners\onStickyAnnotationAdded.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\event-listeners\onTextSelectionComplete.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\event-listeners\onToolModeUpdated.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\event-listeners\onToolUpdated.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\event-listeners\onUpdateAnnotationPermission.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\event-listeners\onZoomUpdated.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\helpers\annotationColorToCss.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\helpers\copyText.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\helpers\createTextAnnotationAndSelect.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\helpers\device.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\helpers\documentContainerHelper.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\helpers\documentTypeParamToEngineType.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\helpers\downloadPdf.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\helpers\eventHandler.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\helpers\getAnnotationColor.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\helpers\getAnnotationIcon.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\helpers\getAnnotationRelatedElements.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\helpers\getAnnotationStyle.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\helpers\getAnnotationType.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\helpers\getBackendPromise.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\helpers\getBrightness.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\helpers\getClassName.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\helpers\getColorFromStyle.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\helpers\getFilteredDataElements.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\helpers\getHashParams.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\helpers\getLatestActivityDate.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\helpers\getOverlayPositionBasedOn.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\helpers\getPagesToPrint.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\helpers\getPopupPosition.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\helpers\getToolStyle.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\helpers\isDataElementPanel.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\helpers\loadCustomCSS.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\helpers\loadDocument.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\helpers\loadScript.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\helpers\openFilePicker.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\helpers\print.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\helpers\setDefaultDisabledElements.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\helpers\setDefaultToolColor.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\helpers\setToolModeAndGroup.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\helpers\setupDocViewer.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\helpers\setupI18n.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\helpers\setupLoadAnnotationsFromServer.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\helpers\setupPDFTron.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\helpers\setUserPermission.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\helpers\toggleFullscreen.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\helpers\toolStyleExists.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\helpers\TouchEventManager.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\helpers\zoom.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\index.build.html" />
+    <Content Include="Content\WebViewer\lib\ui\src\index.html" />
+    <Content Include="Content\WebViewer\lib\ui\src\index.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\redux\actions\exposedActions.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\redux\actions\index.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\redux\actions\internalActions.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\redux\initialState.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\redux\reducers\advancedReducer.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\redux\reducers\documentReducer.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\redux\reducers\rootReducer.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\redux\reducers\searchReducer.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\redux\reducers\userReducer.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\redux\reducers\viewerReducer.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\redux\selectors\exposedSelectors.js" />
+    <Content Include="Content\WebViewer\lib\ui\src\redux\selectors\index.js" />
+    <Content Include="Content\WebViewer\lib\ui\webpack.config.dev.js" />
+    <Content Include="Content\WebViewer\lib\ui\webpack.config.prod.js" />
+    <Content Include="Content\WebViewer\lib\webviewer.js" />
+    <Content Include="Content\WebViewer\lib\webviewer.min.js" />
+    <Content Include="Content\web\debugger.js" />
+    <Content Include="Content\web\images\annotation-check.svg" />
+    <Content Include="Content\web\images\annotation-comment.svg" />
+    <Content Include="Content\web\images\annotation-help.svg" />
+    <Content Include="Content\web\images\annotation-insert.svg" />
+    <Content Include="Content\web\images\annotation-key.svg" />
+    <Content Include="Content\web\images\annotation-newparagraph.svg" />
+    <Content Include="Content\web\images\annotation-noicon.svg" />
+    <Content Include="Content\web\images\annotation-note.svg" />
+    <Content Include="Content\web\images\annotation-paragraph.svg" />
+    <Content Include="Content\web\images\findbarButton-next%402x.png" />
+    <Content Include="Content\web\images\findbarButton-next-rtl%402x.png" />
+    <Content Include="Content\web\images\findbarButton-next-rtl.png" />
+    <Content Include="Content\web\images\findbarButton-next.png" />
+    <Content Include="Content\web\images\findbarButton-previous%402x.png" />
+    <Content Include="Content\web\images\findbarButton-previous-rtl%402x.png" />
+    <Content Include="Content\web\images\findbarButton-previous-rtl.png" />
+    <Content Include="Content\web\images\findbarButton-previous.png" />
+    <Content Include="Content\web\images\grab.cur" />
+    <Content Include="Content\web\images\grabbing.cur" />
+    <Content Include="Content\web\images\loading-icon.gif" />
+    <Content Include="Content\web\images\loading-small%402x.png" />
+    <Content Include="Content\web\images\loading-small.png" />
+    <Content Include="Content\web\images\secondaryToolbarButton-documentProperties%402x.png" />
+    <Content Include="Content\web\images\secondaryToolbarButton-documentProperties.png" />
+    <Content Include="Content\web\images\secondaryToolbarButton-firstPage%402x.png" />
+    <Content Include="Content\web\images\secondaryToolbarButton-firstPage.png" />
+    <Content Include="Content\web\images\secondaryToolbarButton-handTool%402x.png" />
+    <Content Include="Content\web\images\secondaryToolbarButton-handTool.png" />
+    <Content Include="Content\web\images\secondaryToolbarButton-lastPage%402x.png" />
+    <Content Include="Content\web\images\secondaryToolbarButton-lastPage.png" />
+    <Content Include="Content\web\images\secondaryToolbarButton-rotateCcw%402x.png" />
+    <Content Include="Content\web\images\secondaryToolbarButton-rotateCcw.png" />
+    <Content Include="Content\web\images\secondaryToolbarButton-rotateCw%402x.png" />
+    <Content Include="Content\web\images\secondaryToolbarButton-rotateCw.png" />
+    <Content Include="Content\web\images\secondaryToolbarButton-scrollHorizontal%402x.png" />
+    <Content Include="Content\web\images\secondaryToolbarButton-scrollHorizontal.png" />
+    <Content Include="Content\web\images\secondaryToolbarButton-scrollVertical%402x.png" />
+    <Content Include="Content\web\images\secondaryToolbarButton-scrollVertical.png" />
+    <Content Include="Content\web\images\secondaryToolbarButton-scrollWrapped%402x.png" />
+    <Content Include="Content\web\images\secondaryToolbarButton-scrollWrapped.png" />
+    <Content Include="Content\web\images\secondaryToolbarButton-selectTool%402x.png" />
+    <Content Include="Content\web\images\secondaryToolbarButton-selectTool.png" />
+    <Content Include="Content\web\images\secondaryToolbarButton-spreadEven%402x.png" />
+    <Content Include="Content\web\images\secondaryToolbarButton-spreadEven.png" />
+    <Content Include="Content\web\images\secondaryToolbarButton-spreadNone%402x.png" />
+    <Content Include="Content\web\images\secondaryToolbarButton-spreadNone.png" />
+    <Content Include="Content\web\images\secondaryToolbarButton-spreadOdd%402x.png" />
+    <Content Include="Content\web\images\secondaryToolbarButton-spreadOdd.png" />
+    <Content Include="Content\web\images\shadow.png" />
+    <Content Include="Content\web\images\texture.png" />
+    <Content Include="Content\web\images\toolbarButton-bookmark%402x.png" />
+    <Content Include="Content\web\images\toolbarButton-bookmark.png" />
+    <Content Include="Content\web\images\toolbarButton-download%402x.png" />
+    <Content Include="Content\web\images\toolbarButton-download.png" />
+    <Content Include="Content\web\images\toolbarButton-menuArrows%402x.png" />
+    <Content Include="Content\web\images\toolbarButton-menuArrows.png" />
+    <Content Include="Content\web\images\toolbarButton-openFile%402x.png" />
+    <Content Include="Content\web\images\toolbarButton-openFile.png" />
+    <Content Include="Content\web\images\toolbarButton-pageDown%402x.png" />
+    <Content Include="Content\web\images\toolbarButton-pageDown-rtl%402x.png" />
+    <Content Include="Content\web\images\toolbarButton-pageDown-rtl.png" />
+    <Content Include="Content\web\images\toolbarButton-pageDown.png" />
+    <Content Include="Content\web\images\toolbarButton-pageUp%402x.png" />
+    <Content Include="Content\web\images\toolbarButton-pageUp-rtl%402x.png" />
+    <Content Include="Content\web\images\toolbarButton-pageUp-rtl.png" />
+    <Content Include="Content\web\images\toolbarButton-pageUp.png" />
+    <Content Include="Content\web\images\toolbarButton-presentationMode%402x.png" />
+    <Content Include="Content\web\images\toolbarButton-presentationMode.png" />
+    <Content Include="Content\web\images\toolbarButton-print%402x.png" />
+    <Content Include="Content\web\images\toolbarButton-print.png" />
+    <Content Include="Content\web\images\toolbarButton-search%402x.png" />
+    <Content Include="Content\web\images\toolbarButton-search.png" />
+    <Content Include="Content\web\images\toolbarButton-secondaryToolbarToggle%402x.png" />
+    <Content Include="Content\web\images\toolbarButton-secondaryToolbarToggle-rtl%402x.png" />
+    <Content Include="Content\web\images\toolbarButton-secondaryToolbarToggle-rtl.png" />
+    <Content Include="Content\web\images\toolbarButton-secondaryToolbarToggle.png" />
+    <Content Include="Content\web\images\toolbarButton-sidebarToggle%402x.png" />
+    <Content Include="Content\web\images\toolbarButton-sidebarToggle-rtl%402x.png" />
+    <Content Include="Content\web\images\toolbarButton-sidebarToggle-rtl.png" />
+    <Content Include="Content\web\images\toolbarButton-sidebarToggle.png" />
+    <Content Include="Content\web\images\toolbarButton-viewAttachments%402x.png" />
+    <Content Include="Content\web\images\toolbarButton-viewAttachments.png" />
+    <Content Include="Content\web\images\toolbarButton-viewOutline%402x.png" />
+    <Content Include="Content\web\images\toolbarButton-viewOutline-rtl%402x.png" />
+    <Content Include="Content\web\images\toolbarButton-viewOutline-rtl.png" />
+    <Content Include="Content\web\images\toolbarButton-viewOutline.png" />
+    <Content Include="Content\web\images\toolbarButton-viewThumbnail%402x.png" />
+    <Content Include="Content\web\images\toolbarButton-viewThumbnail.png" />
+    <Content Include="Content\web\images\toolbarButton-zoomIn%402x.png" />
+    <Content Include="Content\web\images\toolbarButton-zoomIn.png" />
+    <Content Include="Content\web\images\toolbarButton-zoomOut%402x.png" />
+    <Content Include="Content\web\images\toolbarButton-zoomOut.png" />
+    <Content Include="Content\web\images\treeitem-collapsed%402x.png" />
+    <Content Include="Content\web\images\treeitem-collapsed-rtl%402x.png" />
+    <Content Include="Content\web\images\treeitem-collapsed-rtl.png" />
+    <Content Include="Content\web\images\treeitem-collapsed.png" />
+    <Content Include="Content\web\images\treeitem-expanded%402x.png" />
+    <Content Include="Content\web\images\treeitem-expanded.png" />
+    <Content Include="Content\web\viewer.css" />
+    <Content Include="Content\web\viewer.html" />
+    <Content Include="Content\web\viewer.js" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Models\SignDBContext.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SignDBContext.Context.cs</LastGenOutput>
+      <DependentUpon>SignDBContext.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\SignDBContext.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SignDBContext.edmx</DependentUpon>
+      <LastGenOutput>SignDBContext.cs</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\esm\popper-utils.js" />
+    <Content Include="Scripts\esm\popper-utils.min.js" />
+    <Content Include="Scripts\esm\popper.js" />
+    <Content Include="Scripts\esm\popper.min.js" />
+    <Content Include="Scripts\esm\popper.min.js.map" />
+    <Content Include="Scripts\esm\popper.js.map" />
+    <Content Include="Scripts\esm\popper-utils.min.js.map" />
+    <Content Include="Scripts\esm\popper-utils.js.map" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="Content\OwlCarousel2-2.3.4\.gitattributes" />
+    <Content Include="Content\OwlCarousel2-2.3.4\.gitignore" />
+    <Content Include="Content\OwlCarousel2-2.3.4\.travis.yml" />
+    <Content Include="Content\OwlCarousel2-2.3.4\bower.json" />
+    <Content Include="Content\OwlCarousel2-2.3.4\CONTRIBUTING.md" />
+    <Content Include="Content\OwlCarousel2-2.3.4\dist\LICENSE" />
+    <Content Include="Content\OwlCarousel2-2.3.4\dist\README.md" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs\assets\owlcarousel\README.md" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs\assets\vendors\jquery.min.map" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs_src\assets\scss\custom.scss" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs_src\assets\scss\demos.scss" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs_src\assets\scss\docs.scss" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs_src\assets\scss\docs.theme.scss" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs_src\assets\scss\highlight.scss" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs_src\assets\scss\_settings.scss" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs_src\assets\vendors\jquery.min.map" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs_src\data\classes.json" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs_src\data\events.json" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs_src\data\features.json" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs_src\data\options.json" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs_src\templates\layouts\demos.hbs" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs_src\templates\layouts\docs.hbs" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs_src\templates\layouts\home.hbs" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs_src\templates\pages\demos\animate.hbs" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs_src\templates\pages\demos\autoheight.hbs" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs_src\templates\pages\demos\autoplay.hbs" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs_src\templates\pages\demos\autowidth.hbs" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs_src\templates\pages\demos\basic.hbs" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs_src\templates\pages\demos\center.hbs" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs_src\templates\pages\demos\demos.hbs" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs_src\templates\pages\demos\events.hbs" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs_src\templates\pages\demos\lazyLoad.hbs" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs_src\templates\pages\demos\merge.hbs" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs_src\templates\pages\demos\mousewheel.hbs" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs_src\templates\pages\demos\responsive.hbs" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs_src\templates\pages\demos\rtl.hbs" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs_src\templates\pages\demos\stagepadding.hbs" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs_src\templates\pages\demos\test.hbs" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs_src\templates\pages\demos\urlhashnav.hbs" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs_src\templates\pages\demos\video.hbs" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs_src\templates\pages\docs\api-classes.hbs" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs_src\templates\pages\docs\api-events.hbs" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs_src\templates\pages\docs\api-options.hbs" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs_src\templates\pages\docs\dev-buildin-plugins.hbs" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs_src\templates\pages\docs\dev-external.hbs" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs_src\templates\pages\docs\dev-plugin-api.hbs" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs_src\templates\pages\docs\dev-styles.hbs" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs_src\templates\pages\docs\started-faq.hbs" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs_src\templates\pages\docs\started-installation.hbs" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs_src\templates\pages\docs\started-welcome.hbs" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs_src\templates\pages\docs\support-changelog.hbs" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs_src\templates\pages\docs\support-contact.hbs" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs_src\templates\pages\docs\support-contributing.hbs" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs_src\templates\pages\index.hbs" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs_src\templates\partials\footer.hbs" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs_src\templates\partials\head.hbs" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs_src\templates\partials\header.hbs" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs_src\templates\partials\home-carousel.hbs" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs_src\templates\partials\home-features.hbs" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs_src\templates\partials\home-hero.hbs" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs_src\templates\partials\home-teaser-text.hbs" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs_src\templates\partials\javascripts.hbs" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs_src\templates\partials\releated-docs.hbs" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs_src\templates\partials\sidenav-docs.hbs" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs_src\templates\partials\title.hbs" />
+    <Content Include="Content\OwlCarousel2-2.3.4\docs_src\templates\partials\vendors.hbs" />
+    <Content Include="Content\OwlCarousel2-2.3.4\ISSUE_TEMPLATE.md" />
+    <Content Include="Content\OwlCarousel2-2.3.4\LICENSE" />
+    <Content Include="Content\OwlCarousel2-2.3.4\package-lock.json" />
+    <Content Include="Content\OwlCarousel2-2.3.4\package.json" />
+    <Content Include="Content\OwlCarousel2-2.3.4\README.md" />
+    <Content Include="Content\OwlCarousel2-2.3.4\ROADMAP.md" />
+    <Content Include="Content\OwlCarousel2-2.3.4\src\js\.jscsrc" />
+    <Content Include="Content\OwlCarousel2-2.3.4\src\js\.jshintrc" />
+    <Content Include="Content\OwlCarousel2-2.3.4\src\scss\owl.carousel.scss" />
+    <Content Include="Content\OwlCarousel2-2.3.4\src\scss\owl.theme.default.scss" />
+    <Content Include="Content\OwlCarousel2-2.3.4\src\scss\owl.theme.green.scss" />
+    <Content Include="Content\OwlCarousel2-2.3.4\src\scss\_animate.scss" />
+    <Content Include="Content\OwlCarousel2-2.3.4\src\scss\_autoheight.scss" />
+    <Content Include="Content\OwlCarousel2-2.3.4\src\scss\_core.scss" />
+    <Content Include="Content\OwlCarousel2-2.3.4\src\scss\_lazyload.scss" />
+    <Content Include="Content\OwlCarousel2-2.3.4\src\scss\_theme.default.scss" />
+    <Content Include="Content\OwlCarousel2-2.3.4\src\scss\_theme.green.scss" />
+    <Content Include="Content\OwlCarousel2-2.3.4\src\scss\_theme.scss" />
+    <Content Include="Content\OwlCarousel2-2.3.4\src\scss\_video.scss" />
+    <Content Include="Content\OwlCarousel2-2.3.4\_config.json" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\Login\Index.cshtml" />
+    <Content Include="Areas\Admin\Content\Login\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.eot" />
+    <Content Include="Areas\Admin\Content\Login\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Areas\Admin\Content\Login\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.woff" />
+    <Content Include="Areas\Admin\Content\Login\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Areas\Admin\Content\Login\fonts\font-awesome-4.7.0\fonts\FontAwesome.otf" />
+    <Content Include="Areas\Admin\Content\Login\fonts\font-awesome-4.7.0\less\animated.less" />
+    <Content Include="Areas\Admin\Content\Login\fonts\font-awesome-4.7.0\less\bordered-pulled.less" />
+    <Content Include="Areas\Admin\Content\Login\fonts\font-awesome-4.7.0\less\core.less" />
+    <Content Include="Areas\Admin\Content\Login\fonts\font-awesome-4.7.0\less\fixed-width.less" />
+    <Content Include="Areas\Admin\Content\Login\fonts\font-awesome-4.7.0\less\font-awesome.less" />
+    <Content Include="Areas\Admin\Content\Login\fonts\font-awesome-4.7.0\less\icons.less" />
+    <Content Include="Areas\Admin\Content\Login\fonts\font-awesome-4.7.0\less\larger.less" />
+    <Content Include="Areas\Admin\Content\Login\fonts\font-awesome-4.7.0\less\list.less" />
+    <Content Include="Areas\Admin\Content\Login\fonts\font-awesome-4.7.0\less\mixins.less" />
+    <Content Include="Areas\Admin\Content\Login\fonts\font-awesome-4.7.0\less\path.less" />
+    <Content Include="Areas\Admin\Content\Login\fonts\font-awesome-4.7.0\less\rotated-flipped.less" />
+    <Content Include="Areas\Admin\Content\Login\fonts\font-awesome-4.7.0\less\screen-reader.less" />
+    <Content Include="Areas\Admin\Content\Login\fonts\font-awesome-4.7.0\less\stacked.less" />
+    <Content Include="Areas\Admin\Content\Login\fonts\font-awesome-4.7.0\less\variables.less" />
+    <Content Include="Areas\Admin\Content\Login\fonts\font-awesome-4.7.0\scss\font-awesome.scss" />
+    <Content Include="Areas\Admin\Content\Login\fonts\font-awesome-4.7.0\scss\_animated.scss" />
+    <Content Include="Areas\Admin\Content\Login\fonts\font-awesome-4.7.0\scss\_bordered-pulled.scss" />
+    <Content Include="Areas\Admin\Content\Login\fonts\font-awesome-4.7.0\scss\_core.scss" />
+    <Content Include="Areas\Admin\Content\Login\fonts\font-awesome-4.7.0\scss\_fixed-width.scss" />
+    <Content Include="Areas\Admin\Content\Login\fonts\font-awesome-4.7.0\scss\_icons.scss" />
+    <Content Include="Areas\Admin\Content\Login\fonts\font-awesome-4.7.0\scss\_larger.scss" />
+    <Content Include="Areas\Admin\Content\Login\fonts\font-awesome-4.7.0\scss\_list.scss" />
+    <Content Include="Areas\Admin\Content\Login\fonts\font-awesome-4.7.0\scss\_mixins.scss" />
+    <Content Include="Areas\Admin\Content\Login\fonts\font-awesome-4.7.0\scss\_path.scss" />
+    <Content Include="Areas\Admin\Content\Login\fonts\font-awesome-4.7.0\scss\_rotated-flipped.scss" />
+    <Content Include="Areas\Admin\Content\Login\fonts\font-awesome-4.7.0\scss\_screen-reader.scss" />
+    <Content Include="Areas\Admin\Content\Login\fonts\font-awesome-4.7.0\scss\_stacked.scss" />
+    <Content Include="Areas\Admin\Content\Login\fonts\font-awesome-4.7.0\scss\_variables.scss" />
+    <Content Include="Areas\Admin\Content\Login\fonts\Linearicons-Free-v1.0.0\WebFont\Linearicons-Free.eot" />
+    <Content Include="Areas\Admin\Content\Login\fonts\Linearicons-Free-v1.0.0\WebFont\Linearicons-Free.ttf" />
+    <Content Include="Areas\Admin\Content\Login\fonts\Linearicons-Free-v1.0.0\WebFont\Linearicons-Free.woff" />
+    <Content Include="Areas\Admin\Content\Login\fonts\Linearicons-Free-v1.0.0\WebFont\Linearicons-Free.woff2" />
+    <Content Include="Areas\Admin\Content\Login\fonts\poppins\Poppins-Black.ttf" />
+    <Content Include="Areas\Admin\Content\Login\fonts\poppins\Poppins-BlackItalic.ttf" />
+    <Content Include="Areas\Admin\Content\Login\fonts\poppins\Poppins-Bold.ttf" />
+    <Content Include="Areas\Admin\Content\Login\fonts\poppins\Poppins-BoldItalic.ttf" />
+    <Content Include="Areas\Admin\Content\Login\fonts\poppins\Poppins-ExtraBold.ttf" />
+    <Content Include="Areas\Admin\Content\Login\fonts\poppins\Poppins-ExtraBoldItalic.ttf" />
+    <Content Include="Areas\Admin\Content\Login\fonts\poppins\Poppins-ExtraLight.ttf" />
+    <Content Include="Areas\Admin\Content\Login\fonts\poppins\Poppins-ExtraLightItalic.ttf" />
+    <Content Include="Areas\Admin\Content\Login\fonts\poppins\Poppins-Italic.ttf" />
+    <Content Include="Areas\Admin\Content\Login\fonts\poppins\Poppins-Light.ttf" />
+    <Content Include="Areas\Admin\Content\Login\fonts\poppins\Poppins-LightItalic.ttf" />
+    <Content Include="Areas\Admin\Content\Login\fonts\poppins\Poppins-Medium.ttf" />
+    <Content Include="Areas\Admin\Content\Login\fonts\poppins\Poppins-MediumItalic.ttf" />
+    <Content Include="Areas\Admin\Content\Login\fonts\poppins\Poppins-Regular.ttf" />
+    <Content Include="Areas\Admin\Content\Login\fonts\poppins\Poppins-SemiBold.ttf" />
+    <Content Include="Areas\Admin\Content\Login\fonts\poppins\Poppins-SemiBoldItalic.ttf" />
+    <Content Include="Areas\Admin\Content\Login\fonts\poppins\Poppins-Thin.ttf" />
+    <Content Include="Areas\Admin\Content\Login\fonts\poppins\Poppins-ThinItalic.ttf" />
+    <Content Include="Areas\Admin\Content\Login\vendor\bootstrap\css\bootstrap-grid.css.map" />
+    <Content Include="Areas\Admin\Content\Login\vendor\bootstrap\css\bootstrap-grid.min.css.map" />
+    <Content Include="Areas\Admin\Content\Login\vendor\bootstrap\css\bootstrap-reboot.css.map" />
+    <Content Include="Areas\Admin\Content\Login\vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
+    <Content Include="Areas\Admin\Content\Login\vendor\bootstrap\css\bootstrap.css.map" />
+    <Content Include="Areas\Admin\Content\Login\vendor\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
+    <EntityDeploy Include="Models\SignDBContext.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SignDBContext.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\SignDBContext.edmx.diagram">
+      <DependentUpon>SignDBContext.edmx</DependentUpon>
+    </Content>
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\test.cshtml" />
+    <Content Include="Areas\Admin\Content\admin_t\.gitignore" />
+    <Content Include="Areas\Admin\Content\admin_t\bower.json" />
+    <Content Include="Areas\Admin\Content\admin_t\less\mixins.less" />
+    <Content Include="Areas\Admin\Content\admin_t\less\sb-admin-2.less" />
+    <Content Include="Areas\Admin\Content\admin_t\less\variables.less" />
+    <Content Include="Areas\Admin\Content\admin_t\LICENSE" />
+    <Content Include="Areas\Admin\Content\admin_t\package.json" />
+    <Content Include="Areas\Admin\Content\admin_t\README.md" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\bootstrap-social\bootstrap-social.less" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\bootstrap-social\bootstrap-social.scss" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\datatables-responsive\dataTables.responsive.scss" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\datatables\images\Sorting icons.psd" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\font-awesome\css\font-awesome.css.map" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\font-awesome\less\animated.less" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\font-awesome\less\bordered-pulled.less" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\font-awesome\less\core.less" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\font-awesome\less\extras.less" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\font-awesome\less\fixed-width.less" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\font-awesome\less\font-awesome.less" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\font-awesome\less\icons.less" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\font-awesome\less\larger.less" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\font-awesome\less\list.less" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\font-awesome\less\mixins.less" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\font-awesome\less\path.less" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\font-awesome\less\rotated-flipped.less" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\font-awesome\less\screen-reader.less" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\font-awesome\less\spinning.less" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\font-awesome\less\stacked.less" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\font-awesome\less\variables.less" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\font-awesome\scss\font-awesome.scss" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\font-awesome\scss\_animated.scss" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\font-awesome\scss\_core.scss" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\font-awesome\scss\_extras.scss" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\font-awesome\scss\_fixed-width.scss" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\font-awesome\scss\_icons.scss" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\font-awesome\scss\_larger.scss" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\font-awesome\scss\_list.scss" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\font-awesome\scss\_mixins.scss" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\font-awesome\scss\_path.scss" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\font-awesome\scss\_screen-reader.scss" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\font-awesome\scss\_spinning.scss" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\font-awesome\scss\_stacked.scss" />
+    <Content Include="Areas\Admin\Content\admin_t\vendor\font-awesome\scss\_variables.scss" />
+    <Content Include="Areas\Admin\Views\Positions\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Positions\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Positions\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Positions\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Positions\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\AddDoc.cshtml" />
+    <Content Include="Content\WebViewer\lib\core\office\WebOfficeWorker.gz.js.mem" />
+    <Content Include="Content\WebViewer\lib\core\office\WebOfficeWorker.gz.mem" />
+    <Content Include="Content\WebViewer\lib\core\office\WebOfficeWorker.nmf" />
+    <Content Include="Content\WebViewer\lib\core\office\WebOfficeWorker.pexe" />
+    <Content Include="Content\WebViewer\lib\core\office\WebOfficeWorkerSubzero.nmf" />
+    <Content Include="Content\WebViewer\lib\core\office\WebOfficeWorkerWasm.br.wasm" />
+    <Content Include="Content\WebViewer\lib\core\pdf\full\PDFNetC.gz.js.mem" />
+    <Content Include="Content\WebViewer\lib\core\pdf\full\PDFNetC.gz.mem" />
+    <Content Include="Content\WebViewer\lib\core\pdf\full\PDFNetC.js.mem" />
+    <Content Include="Content\WebViewer\lib\core\pdf\full\PDFNetCWasm.br.js.mem" />
+    <Content Include="Content\WebViewer\lib\core\pdf\full\PDFNetCWasm.br.wasm" />
+    <Content Include="Content\WebViewer\lib\core\pdf\full\PDFNetCWasm.wasm" />
+    <Content Include="Content\WebViewer\lib\core\pdf\full\PDFWorker.nmf" />
+    <Content Include="Content\WebViewer\lib\core\pdf\full\PDFWorker.pexe" />
+    <Content Include="Content\WebViewer\lib\core\pdf\full\PDFWorkerSubzero.nmf" />
+    <Content Include="Content\WebViewer\lib\core\pdf\lean\PDFNetC.gz.js.mem" />
+    <Content Include="Content\WebViewer\lib\core\pdf\lean\PDFNetC.gz.mem" />
+    <Content Include="Content\WebViewer\lib\core\pdf\lean\PDFNetC.js.mem" />
+    <Content Include="Content\WebViewer\lib\core\pdf\lean\PDFNetCWasm.br.js.mem" />
+    <Content Include="Content\WebViewer\lib\core\pdf\lean\PDFNetCWasm.br.wasm" />
+    <Content Include="Content\WebViewer\lib\core\pdf\lean\PDFNetCWasm.wasm" />
+    <Content Include="Content\WebViewer\lib\core\pdf\lean\PDFWorker.nmf" />
+    <Content Include="Content\WebViewer\lib\core\pdf\lean\PDFWorker.pexe" />
+    <Content Include="Content\WebViewer\lib\core\pdf\lean\PDFWorkerSubzero.nmf" />
+    <Content Include="Content\WebViewer\lib\core\pdf\SimpleWorker.nmf" />
+    <Content Include="Content\WebViewer\lib\core\pdf\SimpleWorker.pexe" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\package.json" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\Resources\i18n\translation-de.json" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\Resources\i18n\translation-en.json" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\Resources\i18n\translation-es.json" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\Resources\i18n\translation-fr.json" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\Resources\i18n\translation-gl.json" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\Resources\i18n\translation-pt_br.json" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\Resources\i18n\translation-ru.json" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\Resources\icons\fonts\custom.eot" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\Resources\icons\fonts\custom.ttf" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\Resources\icons\fonts\custom.woff" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\Resources\icons\fonts\glyphicons-regular.eot" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\Resources\icons\fonts\glyphicons-regular.otf" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\Resources\icons\fonts\glyphicons-regular.ttf" />
+    <Content Include="Content\WebViewer\lib\ui-legacy\Resources\icons\fonts\glyphicons-regular.woff" />
+    <Content Include="Content\WebViewer\lib\ui\.babelrc" />
+    <Content Include="Content\WebViewer\lib\ui\.eslintrc" />
+    <Content Include="Content\WebViewer\lib\ui\build\build-5.zip" />
+    <Content Include="Content\WebViewer\lib\ui\build\i18n\translation-en.json" />
+    <Content Include="Content\WebViewer\lib\ui\build\i18n\translation-fr.json" />
+    <Content Include="Content\WebViewer\lib\ui\build\i18n\translation-zh_cn.json" />
+    <Content Include="Content\WebViewer\lib\ui\CONTRIBUTING.md" />
+    <Content Include="Content\WebViewer\lib\ui\i18n\translation-en.json" />
+    <Content Include="Content\WebViewer\lib\ui\i18n\translation-fr.json" />
+    <Content Include="Content\WebViewer\lib\ui\i18n\translation-zh_cn.json" />
+    <Content Include="Content\WebViewer\lib\ui\LICENSE" />
+    <Content Include="Content\WebViewer\lib\ui\package.json" />
+    <Content Include="Content\WebViewer\lib\ui\README.md" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\AnnotationPopup\AnnotationPopup.scss" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\AnnotationStylePopup\AnnotationStylePopup.scss" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\App\App.scss" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\Button\Button.scss" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\ColorPaletteHeader\ColorPaletteHeader.scss" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\ColorPalette\ColorPalette.scss" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\ContextMenuPopup\ContextMenuPopup.scss" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\CopyTextHandler\CopyTextHandler.scss" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\DocumentContainer\DocumentContainer.scss" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\Dropdown\Dropdown.scss" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\Element\Element.scss" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\ErrorModal\ErrorModal.scss" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\FilePickerHandler\FilePickerHandler.scss" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\HeaderItems\HeaderItems.scss" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\Header\Header.scss" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\Icon\Icon.scss" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\Input\Input.scss" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\LeftPanelTabs\LeftPanelTabs.scss" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\LeftPanel\LeftPanel.scss" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\ListSeparator\ListSeparator.scss" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\LoadingModal\LoadingModal.scss" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\MenuOverlay\MenuOverlay.scss" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\NoteContents\NoteContents.scss" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\NotePopup\NotePopup.scss" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\NoteReply\NoteReply.scss" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\NoteRoot\NoteRoot.scss" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\NotesPanel\NotesPanel.scss" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\Note\Note.scss" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\OutlinesPanel\OutlinesPanel.scss" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\Outline\Outline.scss" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\PageNavOverlay\PageNavOverlay.scss" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\PasswordModal\PasswordModal.scss" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\PrintHandler\PrintHandler.scss" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\PrintModal\PrintModal.scss" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\SearchOverlay\SearchOverlay.scss" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\SearchPanel\SearchPanel.scss" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\SearchResult\SearchResult.scss" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\SignatureModal\SignatureModal.scss" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\Slider\Slider.scss" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\StylePopup\StylePopup.scss" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\TextPopup\TextPopup.scss" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\ThumbnailsPanel\ThumbnailsPanel.scss" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\Thumbnail\Thumbnail.scss" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\ToolButton\ToolButton.scss" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\ToolGroupButton\ToolGroupButton.scss" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\ToolsOverlay\ToolsOverlay.scss" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\ToolStylePopup\ToolStylePopup.scss" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\ToolTip\ToolTip.scss" />
+    <Content Include="Content\WebViewer\lib\ui\src\components\ViewControlsOverlay\ViewControlsOverlay.scss" />
+    <Content Include="Content\WebViewer\lib\ui\src\constants\modal.scss" />
+    <Content Include="Content\WebViewer\lib\ui\src\constants\note.scss" />
+    <Content Include="Content\WebViewer\lib\ui\src\constants\overlay.scss" />
+    <Content Include="Content\WebViewer\lib\ui\src\constants\panel.scss" />
+    <Content Include="Content\WebViewer\lib\ui\src\constants\popup.scss" />
+    <Content Include="Content\WebViewer\lib\ui\src\constants\styles.scss" />
+    <Content Include="Areas\Admin\Views\Signatures\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Signatures\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Signatures\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Signatures\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Signatures\Index.cshtml" />
+    <Content Include="Content\build\pdf.js.map" />
+    <Content Include="Content\build\pdf.worker.js.map" />
+    <Content Include="Content\web\cmaps\78-EUC-H.bcmap" />
+    <Content Include="Content\web\cmaps\78-EUC-V.bcmap" />
+    <Content Include="Content\web\cmaps\78-H.bcmap" />
+    <Content Include="Content\web\cmaps\78-RKSJ-H.bcmap" />
+    <Content Include="Content\web\cmaps\78-RKSJ-V.bcmap" />
+    <Content Include="Content\web\cmaps\78-V.bcmap" />
+    <Content Include="Content\web\cmaps\78ms-RKSJ-H.bcmap" />
+    <Content Include="Content\web\cmaps\78ms-RKSJ-V.bcmap" />
+    <Content Include="Content\web\cmaps\83pv-RKSJ-H.bcmap" />
+    <Content Include="Content\web\cmaps\90ms-RKSJ-H.bcmap" />
+    <Content Include="Content\web\cmaps\90ms-RKSJ-V.bcmap" />
+    <Content Include="Content\web\cmaps\90msp-RKSJ-H.bcmap" />
+    <Content Include="Content\web\cmaps\90msp-RKSJ-V.bcmap" />
+    <Content Include="Content\web\cmaps\90pv-RKSJ-H.bcmap" />
+    <Content Include="Content\web\cmaps\90pv-RKSJ-V.bcmap" />
+    <Content Include="Content\web\cmaps\Add-H.bcmap" />
+    <Content Include="Content\web\cmaps\Add-RKSJ-H.bcmap" />
+    <Content Include="Content\web\cmaps\Add-RKSJ-V.bcmap" />
+    <Content Include="Content\web\cmaps\Add-V.bcmap" />
+    <Content Include="Content\web\cmaps\Adobe-CNS1-0.bcmap" />
+    <Content Include="Content\web\cmaps\Adobe-CNS1-1.bcmap" />
+    <Content Include="Content\web\cmaps\Adobe-CNS1-2.bcmap" />
+    <Content Include="Content\web\cmaps\Adobe-CNS1-3.bcmap" />
+    <Content Include="Content\web\cmaps\Adobe-CNS1-4.bcmap" />
+    <Content Include="Content\web\cmaps\Adobe-CNS1-5.bcmap" />
+    <Content Include="Content\web\cmaps\Adobe-CNS1-6.bcmap" />
+    <Content Include="Content\web\cmaps\Adobe-CNS1-UCS2.bcmap" />
+    <Content Include="Content\web\cmaps\Adobe-GB1-0.bcmap" />
+    <Content Include="Content\web\cmaps\Adobe-GB1-1.bcmap" />
+    <Content Include="Content\web\cmaps\Adobe-GB1-2.bcmap" />
+    <Content Include="Content\web\cmaps\Adobe-GB1-3.bcmap" />
+    <Content Include="Content\web\cmaps\Adobe-GB1-4.bcmap" />
+    <Content Include="Content\web\cmaps\Adobe-GB1-5.bcmap" />
+    <Content Include="Content\web\cmaps\Adobe-GB1-UCS2.bcmap" />
+    <Content Include="Content\web\cmaps\Adobe-Japan1-0.bcmap" />
+    <Content Include="Content\web\cmaps\Adobe-Japan1-1.bcmap" />
+    <Content Include="Content\web\cmaps\Adobe-Japan1-2.bcmap" />
+    <Content Include="Content\web\cmaps\Adobe-Japan1-3.bcmap" />
+    <Content Include="Content\web\cmaps\Adobe-Japan1-4.bcmap" />
+    <Content Include="Content\web\cmaps\Adobe-Japan1-5.bcmap" />
+    <Content Include="Content\web\cmaps\Adobe-Japan1-6.bcmap" />
+    <Content Include="Content\web\cmaps\Adobe-Japan1-UCS2.bcmap" />
+    <Content Include="Content\web\cmaps\Adobe-Korea1-0.bcmap" />
+    <Content Include="Content\web\cmaps\Adobe-Korea1-1.bcmap" />
+    <Content Include="Content\web\cmaps\Adobe-Korea1-2.bcmap" />
+    <Content Include="Content\web\cmaps\Adobe-Korea1-UCS2.bcmap" />
+    <Content Include="Content\web\cmaps\B5-H.bcmap" />
+    <Content Include="Content\web\cmaps\B5-V.bcmap" />
+    <Content Include="Content\web\cmaps\B5pc-H.bcmap" />
+    <Content Include="Content\web\cmaps\B5pc-V.bcmap" />
+    <Content Include="Content\web\cmaps\CNS-EUC-H.bcmap" />
+    <Content Include="Content\web\cmaps\CNS-EUC-V.bcmap" />
+    <Content Include="Content\web\cmaps\CNS1-H.bcmap" />
+    <Content Include="Content\web\cmaps\CNS1-V.bcmap" />
+    <Content Include="Content\web\cmaps\CNS2-H.bcmap" />
+    <Content Include="Content\web\cmaps\CNS2-V.bcmap" />
+    <Content Include="Content\web\cmaps\ETen-B5-H.bcmap" />
+    <Content Include="Content\web\cmaps\ETen-B5-V.bcmap" />
+    <Content Include="Content\web\cmaps\ETenms-B5-H.bcmap" />
+    <Content Include="Content\web\cmaps\ETenms-B5-V.bcmap" />
+    <Content Include="Content\web\cmaps\ETHK-B5-H.bcmap" />
+    <Content Include="Content\web\cmaps\ETHK-B5-V.bcmap" />
+    <Content Include="Content\web\cmaps\EUC-H.bcmap" />
+    <Content Include="Content\web\cmaps\EUC-V.bcmap" />
+    <Content Include="Content\web\cmaps\Ext-H.bcmap" />
+    <Content Include="Content\web\cmaps\Ext-RKSJ-H.bcmap" />
+    <Content Include="Content\web\cmaps\Ext-RKSJ-V.bcmap" />
+    <Content Include="Content\web\cmaps\Ext-V.bcmap" />
+    <Content Include="Content\web\cmaps\GB-EUC-H.bcmap" />
+    <Content Include="Content\web\cmaps\GB-EUC-V.bcmap" />
+    <Content Include="Content\web\cmaps\GB-H.bcmap" />
+    <Content Include="Content\web\cmaps\GB-V.bcmap" />
+    <Content Include="Content\web\cmaps\GBK-EUC-H.bcmap" />
+    <Content Include="Content\web\cmaps\GBK-EUC-V.bcmap" />
+    <Content Include="Content\web\cmaps\GBK2K-H.bcmap" />
+    <Content Include="Content\web\cmaps\GBK2K-V.bcmap" />
+    <Content Include="Content\web\cmaps\GBKp-EUC-H.bcmap" />
+    <Content Include="Content\web\cmaps\GBKp-EUC-V.bcmap" />
+    <Content Include="Content\web\cmaps\GBpc-EUC-H.bcmap" />
+    <Content Include="Content\web\cmaps\GBpc-EUC-V.bcmap" />
+    <Content Include="Content\web\cmaps\GBT-EUC-H.bcmap" />
+    <Content Include="Content\web\cmaps\GBT-EUC-V.bcmap" />
+    <Content Include="Content\web\cmaps\GBT-H.bcmap" />
+    <Content Include="Content\web\cmaps\GBT-V.bcmap" />
+    <Content Include="Content\web\cmaps\GBTpc-EUC-H.bcmap" />
+    <Content Include="Content\web\cmaps\GBTpc-EUC-V.bcmap" />
+    <Content Include="Content\web\cmaps\H.bcmap" />
+    <Content Include="Content\web\cmaps\Hankaku.bcmap" />
+    <Content Include="Content\web\cmaps\Hiragana.bcmap" />
+    <Content Include="Content\web\cmaps\HKdla-B5-H.bcmap" />
+    <Content Include="Content\web\cmaps\HKdla-B5-V.bcmap" />
+    <Content Include="Content\web\cmaps\HKdlb-B5-H.bcmap" />
+    <Content Include="Content\web\cmaps\HKdlb-B5-V.bcmap" />
+    <Content Include="Content\web\cmaps\HKgccs-B5-H.bcmap" />
+    <Content Include="Content\web\cmaps\HKgccs-B5-V.bcmap" />
+    <Content Include="Content\web\cmaps\HKm314-B5-H.bcmap" />
+    <Content Include="Content\web\cmaps\HKm314-B5-V.bcmap" />
+    <Content Include="Content\web\cmaps\HKm471-B5-H.bcmap" />
+    <Content Include="Content\web\cmaps\HKm471-B5-V.bcmap" />
+    <Content Include="Content\web\cmaps\HKscs-B5-H.bcmap" />
+    <Content Include="Content\web\cmaps\HKscs-B5-V.bcmap" />
+    <Content Include="Content\web\cmaps\Katakana.bcmap" />
+    <Content Include="Content\web\cmaps\KSC-EUC-H.bcmap" />
+    <Content Include="Content\web\cmaps\KSC-EUC-V.bcmap" />
+    <Content Include="Content\web\cmaps\KSC-H.bcmap" />
+    <Content Include="Content\web\cmaps\KSC-Johab-H.bcmap" />
+    <Content Include="Content\web\cmaps\KSC-Johab-V.bcmap" />
+    <Content Include="Content\web\cmaps\KSC-V.bcmap" />
+    <Content Include="Content\web\cmaps\KSCms-UHC-H.bcmap" />
+    <Content Include="Content\web\cmaps\KSCms-UHC-HW-H.bcmap" />
+    <Content Include="Content\web\cmaps\KSCms-UHC-HW-V.bcmap" />
+    <Content Include="Content\web\cmaps\KSCms-UHC-V.bcmap" />
+    <Content Include="Content\web\cmaps\KSCpc-EUC-H.bcmap" />
+    <Content Include="Content\web\cmaps\KSCpc-EUC-V.bcmap" />
+    <Content Include="Content\web\cmaps\LICENSE" />
+    <Content Include="Content\web\cmaps\NWP-H.bcmap" />
+    <Content Include="Content\web\cmaps\NWP-V.bcmap" />
+    <Content Include="Content\web\cmaps\RKSJ-H.bcmap" />
+    <Content Include="Content\web\cmaps\RKSJ-V.bcmap" />
+    <Content Include="Content\web\cmaps\Roman.bcmap" />
+    <Content Include="Content\web\cmaps\UniCNS-UCS2-H.bcmap" />
+    <Content Include="Content\web\cmaps\UniCNS-UCS2-V.bcmap" />
+    <Content Include="Content\web\cmaps\UniCNS-UTF16-H.bcmap" />
+    <Content Include="Content\web\cmaps\UniCNS-UTF16-V.bcmap" />
+    <Content Include="Content\web\cmaps\UniCNS-UTF32-H.bcmap" />
+    <Content Include="Content\web\cmaps\UniCNS-UTF32-V.bcmap" />
+    <Content Include="Content\web\cmaps\UniCNS-UTF8-H.bcmap" />
+    <Content Include="Content\web\cmaps\UniCNS-UTF8-V.bcmap" />
+    <Content Include="Content\web\cmaps\UniGB-UCS2-H.bcmap" />
+    <Content Include="Content\web\cmaps\UniGB-UCS2-V.bcmap" />
+    <Content Include="Content\web\cmaps\UniGB-UTF16-H.bcmap" />
+    <Content Include="Content\web\cmaps\UniGB-UTF16-V.bcmap" />
+    <Content Include="Content\web\cmaps\UniGB-UTF32-H.bcmap" />
+    <Content Include="Content\web\cmaps\UniGB-UTF32-V.bcmap" />
+    <Content Include="Content\web\cmaps\UniGB-UTF8-H.bcmap" />
+    <Content Include="Content\web\cmaps\UniGB-UTF8-V.bcmap" />
+    <Content Include="Content\web\cmaps\UniJIS-UCS2-H.bcmap" />
+    <Content Include="Content\web\cmaps\UniJIS-UCS2-HW-H.bcmap" />
+    <Content Include="Content\web\cmaps\UniJIS-UCS2-HW-V.bcmap" />
+    <Content Include="Content\web\cmaps\UniJIS-UCS2-V.bcmap" />
+    <Content Include="Content\web\cmaps\UniJIS-UTF16-H.bcmap" />
+    <Content Include="Content\web\cmaps\UniJIS-UTF16-V.bcmap" />
+    <Content Include="Content\web\cmaps\UniJIS-UTF32-H.bcmap" />
+    <Content Include="Content\web\cmaps\UniJIS-UTF32-V.bcmap" />
+    <Content Include="Content\web\cmaps\UniJIS-UTF8-H.bcmap" />
+    <Content Include="Content\web\cmaps\UniJIS-UTF8-V.bcmap" />
+    <Content Include="Content\web\cmaps\UniJIS2004-UTF16-H.bcmap" />
+    <Content Include="Content\web\cmaps\UniJIS2004-UTF16-V.bcmap" />
+    <Content Include="Content\web\cmaps\UniJIS2004-UTF32-H.bcmap" />
+    <Content Include="Content\web\cmaps\UniJIS2004-UTF32-V.bcmap" />
+    <Content Include="Content\web\cmaps\UniJIS2004-UTF8-H.bcmap" />
+    <Content Include="Content\web\cmaps\UniJIS2004-UTF8-V.bcmap" />
+    <Content Include="Content\web\cmaps\UniJISPro-UCS2-HW-V.bcmap" />
+    <Content Include="Content\web\cmaps\UniJISPro-UCS2-V.bcmap" />
+    <Content Include="Content\web\cmaps\UniJISPro-UTF8-V.bcmap" />
+    <Content Include="Content\web\cmaps\UniJISX0213-UTF32-H.bcmap" />
+    <Content Include="Content\web\cmaps\UniJISX0213-UTF32-V.bcmap" />
+    <Content Include="Content\web\cmaps\UniJISX02132004-UTF32-H.bcmap" />
+    <Content Include="Content\web\cmaps\UniJISX02132004-UTF32-V.bcmap" />
+    <Content Include="Content\web\cmaps\UniKS-UCS2-H.bcmap" />
+    <Content Include="Content\web\cmaps\UniKS-UCS2-V.bcmap" />
+    <Content Include="Content\web\cmaps\UniKS-UTF16-H.bcmap" />
+    <Content Include="Content\web\cmaps\UniKS-UTF16-V.bcmap" />
+    <Content Include="Content\web\cmaps\UniKS-UTF32-H.bcmap" />
+    <Content Include="Content\web\cmaps\UniKS-UTF32-V.bcmap" />
+    <Content Include="Content\web\cmaps\UniKS-UTF8-H.bcmap" />
+    <Content Include="Content\web\cmaps\UniKS-UTF8-V.bcmap" />
+    <Content Include="Content\web\cmaps\V.bcmap" />
+    <Content Include="Content\web\cmaps\WP-Symbol.bcmap" />
+    <Content Include="Content\web\compressed.tracemonkey-pldi-09.pdf" />
+    <Content Include="Content\web\locale\ach\viewer.properties" />
+    <Content Include="Content\web\locale\af\viewer.properties" />
+    <Content Include="Content\web\locale\ak\viewer.properties" />
+    <Content Include="Content\web\locale\an\viewer.properties" />
+    <Content Include="Content\web\locale\ar\viewer.properties" />
+    <Content Include="Content\web\locale\ast\viewer.properties" />
+    <Content Include="Content\web\locale\as\viewer.properties" />
+    <Content Include="Content\web\locale\az\viewer.properties" />
+    <Content Include="Content\web\locale\be\viewer.properties" />
+    <Content Include="Content\web\locale\bg\viewer.properties" />
+    <Content Include="Content\web\locale\bn-BD\viewer.properties" />
+    <Content Include="Content\web\locale\bn-IN\viewer.properties" />
+    <Content Include="Content\web\locale\brx\viewer.properties" />
+    <Content Include="Content\web\locale\br\viewer.properties" />
+    <Content Include="Content\web\locale\bs\viewer.properties" />
+    <Content Include="Content\web\locale\cak\viewer.properties" />
+    <Content Include="Content\web\locale\ca\viewer.properties" />
+    <Content Include="Content\web\locale\crh\viewer.properties" />
+    <Content Include="Content\web\locale\csb\viewer.properties" />
+    <Content Include="Content\web\locale\cs\viewer.properties" />
+    <Content Include="Content\web\locale\cy\viewer.properties" />
+    <Content Include="Content\web\locale\da\viewer.properties" />
+    <Content Include="Content\web\locale\de\viewer.properties" />
+    <Content Include="Content\web\locale\el\viewer.properties" />
+    <Content Include="Content\web\locale\en-CA\viewer.properties" />
+    <Content Include="Content\web\locale\en-GB\viewer.properties" />
+    <Content Include="Content\web\locale\en-US\viewer.properties" />
+    <Content Include="Content\web\locale\en-ZA\viewer.properties" />
+    <Content Include="Content\web\locale\eo\viewer.properties" />
+    <Content Include="Content\web\locale\es-AR\viewer.properties" />
+    <Content Include="Content\web\locale\es-CL\viewer.properties" />
+    <Content Include="Content\web\locale\es-ES\viewer.properties" />
+    <Content Include="Content\web\locale\es-MX\viewer.properties" />
+    <Content Include="Content\web\locale\et\viewer.properties" />
+    <Content Include="Content\web\locale\eu\viewer.properties" />
+    <Content Include="Content\web\locale\fa\viewer.properties" />
+    <Content Include="Content\web\locale\ff\viewer.properties" />
+    <Content Include="Content\web\locale\fi\viewer.properties" />
+    <Content Include="Content\web\locale\fr\viewer.properties" />
+    <Content Include="Content\web\locale\fy-NL\viewer.properties" />
+    <Content Include="Content\web\locale\ga-IE\viewer.properties" />
+    <Content Include="Content\web\locale\gd\viewer.properties" />
+    <Content Include="Content\web\locale\gl\viewer.properties" />
+    <Content Include="Content\web\locale\gn\viewer.properties" />
+    <Content Include="Content\web\locale\gu-IN\viewer.properties" />
+    <Content Include="Content\web\locale\he\viewer.properties" />
+    <Content Include="Content\web\locale\hi-IN\viewer.properties" />
+    <Content Include="Content\web\locale\hr\viewer.properties" />
+    <Content Include="Content\web\locale\hsb\viewer.properties" />
+    <Content Include="Content\web\locale\hto\viewer.properties" />
+    <Content Include="Content\web\locale\hu\viewer.properties" />
+    <Content Include="Content\web\locale\hy-AM\viewer.properties" />
+    <Content Include="Content\web\locale\ia\viewer.properties" />
+    <Content Include="Content\web\locale\id\viewer.properties" />
+    <Content Include="Content\web\locale\is\viewer.properties" />
+    <Content Include="Content\web\locale\it\viewer.properties" />
+    <Content Include="Content\web\locale\ja\viewer.properties" />
+    <Content Include="Content\web\locale\kab\viewer.properties" />
+    <Content Include="Content\web\locale\ka\viewer.properties" />
+    <Content Include="Content\web\locale\kk\viewer.properties" />
+    <Content Include="Content\web\locale\km\viewer.properties" />
+    <Content Include="Content\web\locale\kn\viewer.properties" />
+    <Content Include="Content\web\locale\kok\viewer.properties" />
+    <Content Include="Content\web\locale\ko\viewer.properties" />
+    <Content Include="Content\web\locale\ks\viewer.properties" />
+    <Content Include="Content\web\locale\ku\viewer.properties" />
+    <Content Include="Content\web\locale\lg\viewer.properties" />
+    <Content Include="Content\web\locale\lij\viewer.properties" />
+    <Content Include="Content\web\locale\locale.properties" />
+    <Content Include="Content\web\locale\lo\viewer.properties" />
+    <Content Include="Content\web\locale\ltg\viewer.properties" />
+    <Content Include="Content\web\locale\lt\viewer.properties" />
+    <Content Include="Content\web\locale\lv\viewer.properties" />
+    <Content Include="Content\web\locale\mai\viewer.properties" />
+    <Content Include="Content\web\locale\meh\viewer.properties" />
+    <Content Include="Content\web\locale\mk\viewer.properties" />
+    <Content Include="Content\web\locale\ml\viewer.properties" />
+    <Content Include="Content\web\locale\mn\viewer.properties" />
+    <Content Include="Content\web\locale\mr\viewer.properties" />
+    <Content Include="Content\web\locale\ms\viewer.properties" />
+    <Content Include="Content\web\locale\my\viewer.properties" />
+    <Content Include="Content\web\locale\nb-NO\viewer.properties" />
+    <Content Include="Content\web\locale\ne-NP\viewer.properties" />
+    <Content Include="Content\web\locale\nl\viewer.properties" />
+    <Content Include="Content\web\locale\nn-NO\viewer.properties" />
+    <Content Include="Content\web\locale\nso\viewer.properties" />
+    <Content Include="Content\web\locale\oc\viewer.properties" />
+    <Content Include="Content\web\locale\or\viewer.properties" />
+    <Content Include="Content\web\locale\pa-IN\viewer.properties" />
+    <Content Include="Content\web\locale\pl\viewer.properties" />
+    <Content Include="Content\web\locale\pt-BR\viewer.properties" />
+    <Content Include="Content\web\locale\pt-PT\viewer.properties" />
+    <Content Include="Content\web\locale\rm\viewer.properties" />
+    <Content Include="Content\web\locale\ro\viewer.properties" />
+    <Content Include="Content\web\locale\ru\viewer.properties" />
+    <Content Include="Content\web\locale\rw\viewer.properties" />
+    <Content Include="Content\web\locale\sah\viewer.properties" />
+    <Content Include="Content\web\locale\sat\viewer.properties" />
+    <Content Include="Content\web\locale\si\viewer.properties" />
+    <Content Include="Content\web\locale\sk\viewer.properties" />
+    <Content Include="Content\web\locale\sl\viewer.properties" />
+    <Content Include="Content\web\locale\son\viewer.properties" />
+    <Content Include="Content\web\locale\sq\viewer.properties" />
+    <Content Include="Content\web\locale\sr\viewer.properties" />
+    <Content Include="Content\web\locale\sv-SE\viewer.properties" />
+    <Content Include="Content\web\locale\sw\viewer.properties" />
+    <Content Include="Content\web\locale\ta-LK\viewer.properties" />
+    <Content Include="Content\web\locale\ta\viewer.properties" />
+    <Content Include="Content\web\locale\te\viewer.properties" />
+    <Content Include="Content\web\locale\th\viewer.properties" />
+    <Content Include="Content\web\locale\tl\viewer.properties" />
+    <Content Include="Content\web\locale\tn\viewer.properties" />
+    <Content Include="Content\web\locale\tr\viewer.properties" />
+    <Content Include="Content\web\locale\tsz\viewer.properties" />
+    <Content Include="Content\web\locale\uk\viewer.properties" />
+    <Content Include="Content\web\locale\ur\viewer.properties" />
+    <Content Include="Content\web\locale\uz\viewer.properties" />
+    <Content Include="Content\web\locale\vi\viewer.properties" />
+    <Content Include="Content\web\locale\wo\viewer.properties" />
+    <Content Include="Content\web\locale\xh\viewer.properties" />
+    <Content Include="Content\web\locale\zam\viewer.properties" />
+    <Content Include="Content\web\locale\zh-CN\viewer.properties" />
+    <Content Include="Content\web\locale\zh-TW\viewer.properties" />
+    <Content Include="Content\web\locale\zu\viewer.properties" />
+    <Content Include="Content\web\viewer.js.map" />
+    <Content Include="Areas\Admin\Views\Home\CreateBlankDocument.cshtml" />
+    <Content Include="Areas\Admin\Views\Login\Register.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\DashBoard.cshtml" />
+    <Content Include="Areas\Admin\Views\Documents\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Documents\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Documents\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Documents\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Documents\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Documents\Document.cshtml" />
+    <Content Include="Areas\Admin\Views\Documents\Template.cshtml" />
+    <Content Include="Areas\Admin\Views\Messages\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Messages\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Messages\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Messages\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Messages\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Messages\Inbox.cshtml" />
+    <Content Include="Areas\Admin\Views\Messages\Sent.cshtml" />
+    <Content Include="Areas\Admin\Views\Users\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Users\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Users\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Users\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Users\Index.cshtml" />
+    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.3.1.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\main.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\popper-utils.js" />
+    <Content Include="Scripts\popper-utils.min.js" />
+    <Content Include="Scripts\popper.js" />
+    <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\umd\popper-utils.js" />
+    <Content Include="Scripts\umd\popper-utils.min.js" />
+    <Content Include="Scripts\umd\popper.js" />
+    <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Scripts\umd\popper.min.js.map" />
+    <Content Include="Scripts\umd\popper.js.map" />
+    <Content Include="Scripts\umd\popper-utils.min.js.map" />
+    <Content Include="Scripts\umd\popper-utils.js.map" />
+    <Content Include="Scripts\README.md" />
+    <Content Include="Scripts\popper.min.js.map" />
+    <Content Include="Scripts\popper.js.map" />
+    <Content Include="Scripts\popper-utils.min.js.map" />
+    <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\Home\Pricing.cshtml" />
+    <Content Include="Views\Home\HTMLToPDF.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Admin\Views\PDF\" />
+    <Folder Include="Content\WebViewer\lib\ui-legacy\annotations\5be1ea4acd69e\" />
+    <Folder Include="Content\WebViewer\lib\ui\annotations\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Scripts\index.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>64426</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:64426/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.6.1\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.6.1\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

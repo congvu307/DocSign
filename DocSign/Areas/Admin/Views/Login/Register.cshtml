@@ -1,0 +1,150 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Admin Login</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="~/Areas/Admin/Content/Login/images/icons/favicon.ico" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Areas/Admin/Content/Login/vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Areas/Admin/Content/Login/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Areas/Admin/Content/Login/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Areas/Admin/Content/Login/vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Areas/Admin/Content/Login/vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Areas/Admin/Content/Login/vendor/animsition/css/animsition.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Areas/Admin/Content/Login/vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Areas/Admin/Content/Login/vendor/daterangepicker/daterangepicker.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Areas/Admin/Content/Login/css/util.css">
+    <link rel="stylesheet" type="text/css" href="~/Areas/Admin/Content/Login/css/main.css">
+    <!--===============================================================================================-->
+</head>
+<body>
+    <style>
+        #alert{
+            padding:20px;
+            text-align:center;
+            background:#00ff90;
+            color:#cd18e9;
+        }
+    </style>
+    <div class="limiter">
+        <div class="container-login100">
+            <div class="wrap-login100">
+                <div class="login100-form-title" style="background-image: url(/Areas/Admin/Content/Login/images/bg-01.jpg);">
+                    <span class="login100-form-title-1">
+                        Register
+                    </span>
+                </div>
+                <div id="alert">
+                    @ViewBag.Message
+                </div>
+                                <form class="login100-form validate-form" method="post" onsubmit="return validate()">
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true, null, new { @style = "color:red; list-style-type:none !important;font-size:80%;" })
+                    <div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
+                        <small id="alertUsername"></small>
+                        <span class="label-input100">Email</span>
+                        <input class="input100" autocomplete="off" type="email" name="UserName" oninput="checkUsername()" id="txtUsername" placeholder="Enter username">
+                        <span class="focus-input100"></span>
+                    </div>
+
+                    <div class="wrap-input100 validate-input m-b-18" data-validate="Password is required">
+                        <span class="label-input100">Password</span>
+                        <input class="input100" type="password" id="txtPWD" name="Password" placeholder="Enter password">
+                        <span class="focus-input100"></span>
+                    </div>
+                    <div class="wrap-input100 validate-input m-b-18" data-validate="Password is required">
+                        <small style="color:red" id="CPWDAlert"></small>
+                        <span class="label-input100">Password</span>
+                        <input class="input100" type="password" id="txtCPWD" placeholder="Confirm password">
+                        <span class="focus-input100"></span>
+                    </div>
+                    <div class="wrap-input100 validate-input m-b-26" data-validate="FullName is required">
+                        <span class="label-input100">Full Name</span>
+                        <input class="input100" type="text" name="FullName" placeholder="Enter full name">
+                        <span class="focus-input100"></span>
+                    </div>
+
+                    <div class="wrap-input100 validate-input m-b-26" data-validate="Phone is required">
+                        <span class="label-input100">Phone Number</span>
+                        <input class="input100" type="text" name="Phone" placeholder="Enter Phone">
+                        <span class="focus-input100"></span>
+                    </div>
+
+                    <div class="flex-sb-m w-full p-b-30">
+
+
+                        <div>
+                            <a href="/admin/login" class="txt1">
+                                Have a account
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="container-login100-form-btn">
+                        <button class="login100-form-btn" type="submit">
+                            Register
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!--===============================================================================================-->
+    <script src="~/Areas/Admin/Content/Login/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/Areas/Admin/Content/Login/vendor/animsition/js/animsition.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/Areas/Admin/Content/Login/vendor/bootstrap/js/popper.js"></script>
+    <script src="~/Areas/Admin/Content/Login/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/Areas/Admin/Content/Login/vendor/select2/select2.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/Areas/Admin/Content/Login/vendor/daterangepicker/moment.min.js"></script>
+    <script src="~/Areas/Admin/Content/Login/vendor/daterangepicker/daterangepicker.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/Areas/Admin/Content/Login/vendor/countdowntime/countdowntime.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/Areas/Admin/Content/Login/js/main.js"></script>
+    <script>
+        var validate = function () {
+            if ($('#txtUsername').val().length <= 6 || $('#txtUsername').val().length >= 24) {
+                $('#alertUsername').html('Nhập tên tài khoản từ 7 đến 24 ký tự');
+                return false;
+            }
+
+            if ($('#txtPWD').val() !== $('#txtCPWD').val()) {
+                $('#CPWDAlert').html('Xác nhận mật khẩu không đúng');
+                return false;
+            }
+            return true;
+        }
+        function checkUsername() {
+            $.ajax({
+                type: 'POST',
+                url: '/Admin/Login/CheckUsername',
+                data: { username: $('#txtUsername').val()},
+                success: function (data) {
+                    $('#alertUsername').html(data);
+                },
+               
+            })
+        }
+    </script>
+</body>
+</html>

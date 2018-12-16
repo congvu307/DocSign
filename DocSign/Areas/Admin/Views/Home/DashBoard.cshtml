@@ -1,0 +1,84 @@
+﻿@model IEnumerable<DocSign.Models.Document>
+@{
+    ViewBag.Title = "DashBoard";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>DashBoard</h2>
+@if (Model != null)
+{
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                @*<div class="panel-heading">
+                        DataTables Advanced Tables
+                    </div>*@
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                        <thead>
+                            <tr>
+                                <th>
+
+                                </th>
+                                <th>
+
+                                </th>
+                                <th>
+
+                                </th>
+                                <th></th>
+                            </tr>
+
+                        </thead>
+                        <tbody>
+
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.FIleName)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.CreateDate)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Note)
+                                    </td>
+                                    <td>
+                                        <a href="/admin/documents/edit?id=@item.ID"><i class="fa fa-edit"></i></a>
+                                        <a href="/admin/documents/delete?id=@item.ID"><i class="fa fa-trash"></i></a>
+                                        <a href="" class="btn btn-primary send-document" data-toggle="modal" data-doc-id="@item.ID" data-target="#exampleModal">Send</a>
+                                    </td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                    <!-- /.table-responsive -->
+
+                </div>
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+
+}
+else
+{
+
+    <div class="text-center">
+        <h1>Bạn chưa có tài liệu nào cả</h1>
+        <a href="/admin/home/adddoc" class="btn btn-secondary">Tạo mới</a>
+    </div>
+}
+
+@section scripts {
+    <script>
+        $('.send-document').on('click', function () {
+            $('#documentID').val($(this).data('doc-id'))
+        })
+    </script>
+}

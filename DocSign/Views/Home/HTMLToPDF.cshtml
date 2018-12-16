@@ -1,0 +1,55 @@
+﻿@model DocSign.Models.InvoiceModel
+
+@{
+    ViewBag.Title = "www.compilemode.com";
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        <h4>Using Aspose.Pdf for .NET</h4>
+        <hr />
+        <table class="table-bordered table">
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.CustomerName)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.CustomerName)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.TransactionRef)
+                </td>
+                <td>@Html.DisplayFor(model => model.TransactionRef)</td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.TransactionDate)
+                </td>
+                <td>@Html.DisplayFor(model => model.TransactionDate)</td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.TransactionAmount)
+                </td>
+                <td>@Html.DisplayFor(model => model.TransactionAmount)</td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Status)
+                </td>
+                <td>@Html.DisplayFor(model => model.Status)</td>
+            </tr>
+
+        </table>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Export To PDF" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}

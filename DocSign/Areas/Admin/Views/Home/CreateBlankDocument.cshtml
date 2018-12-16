@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "CreateBlankDocument";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create Blank Document</h2>
+
+<div id='viewer' style='width: 1024px; height: 600px;'></div>
+@section scripts {
+
+    <script>
+  var viewerElement = document.getElementById('viewer');
+  var myWebViewer = new PDFTron.WebViewer({
+    path: '/Content/WebViewer/lib',
+    l: 'demo:admin@kimeco.vn:7528d63d0115e37400c2a8c5bc432a19d7c2fdf8f7462e3e2b',
+      initialDoc: 'http://localhost:64426/Content/blank_document.pdf', // this URL must be publicly accessible to work with the pdftronServer at demo.pdftron.com
+    //pdftronServer: 'https://demo.pdftron.com' // remove option to run client-side only, or replace later with your own server
+  }, viewerElement);
+    </script>
+}

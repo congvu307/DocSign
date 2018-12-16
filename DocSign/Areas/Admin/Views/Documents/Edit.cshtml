@@ -1,0 +1,85 @@
+﻿@model DocSign.Models.Document
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Document</h4>
+        <hr />
+        <div id='viewer' style='width: 1024px; height: 600px;'></div>
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.ID)
+
+        @Html.EditorFor(model => model.Url, new { htmlAttributes = new { @class = "form-control", @type = "hidden" } })
+
+
+
+        @Html.EditorFor(model => model.CreateBy, new { htmlAttributes = new { @class = "form-control", @type = "hidden" } })
+
+        @Html.EditorFor(model => model.Note, new { htmlAttributes = new { @class = "form-control", @type = "hidden" } })
+
+        @Html.EditorFor(model => model.Status, new { htmlAttributes = new { @class = "form-control", @type = "hidden" } })
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Privacy, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Privacy, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Privacy, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @Html.EditorFor(model => model.DataUrl, new { htmlAttributes = new { @class = "form-control", @type = "hidden" } })
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FIleName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.FIleName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.FIleName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Type, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Type, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Type, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        @Html.EditorFor(model => model.CreateDate, new { htmlAttributes = new { @class = "form-control", @type = "hidden" } })
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+@section scripts {
+
+    <script>
+        var viewerElement = document.getElementById('viewer');
+        var myWebViewer = new PDFTron.WebViewer({
+            path: '/Content/WebViewer/lib',
+            l: 'demo:admin@kimeco.vn:7528d63d0115e37400c2a8c5bc432a19d7c2fdf8f7462e3e2b',
+            initialDoc: 'http://localhost:64426/Content/document/@Model.CreateBy/@Model.FIleName', // this URL must be publicly accessible to work with the pdftronServer at demo.pdftron.com
+            //pdftronServer: 'https://demo.pdftron.com' // remove option to run client-side only, or replace later with your own server
+        }, viewerElement);
+    </script>
+}
