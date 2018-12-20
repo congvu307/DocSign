@@ -24,13 +24,20 @@ namespace DocSign.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Register([Bind(Include = "UserName,Password,FullName,Address,CreateDate,Status,Note,DateOfBirth,Gender,Phone,PositionID,Email")] User user)
         {
-            if (ModelState.IsValid)
+            var temp = db.Users.Find(user.UserName);
+
+            if (ModelState.IsValid && temp == null)
             {
                 user.Email = user.UserName;
                 user.Status = true;
                 user.PositionID = 2;
                 db.Users.Add(user);
                 db.SaveChanges();
+            }
+            else
+            {
+                ViewBag.Message = "Tài khoản đã tồn tại";
+
             }
             ViewBag.Message = "Đăng ký thành công";
             return View();

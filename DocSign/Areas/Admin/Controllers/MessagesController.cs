@@ -18,10 +18,16 @@ namespace DocSign.Areas.Admin.Controllers
         public void SendMyMail(string Subject, string ToEmail, string Body, string FromUser, string FromPass, string FileName)
         {
             MailMessage toUser = new MailMessage();
-            Attachment attachment = new Attachment(Server.MapPath("~/Content/document/" + Request.Cookies["username"].Value + "/" + FileName));
+            
             toUser.From = new MailAddress("duongcongvu.com@gmail.com", "VteamHub", Encoding.UTF8);
             toUser.To.Add(ToEmail);
-            toUser.Attachments.Add(attachment);
+            if(FileName != "")
+            {
+                var path = "~/Content/document/" + Request.Cookies["username"].Value + "/" + FileName;
+                Attachment attachment = new Attachment(Server.MapPath(path));
+                toUser.Attachments.Add(attachment);
+            }
+            
             toUser.SubjectEncoding = Encoding.UTF8;
             toUser.Subject = "Vteam Hub document - " + Request.Cookies["username"].Value;
             toUser.BodyEncoding = Encoding.UTF8;
@@ -46,8 +52,12 @@ namespace DocSign.Areas.Admin.Controllers
             var document = db.Documents.Find(documentID);
             if (document != null)
             {
-                SendMyMail("Tài liệu từ " + Request.Cookies["username"].Value, toEmail, content, "", "", document.DataUrl);
+                SendMyMail("Tài liệu từ " + Request.Cookies["username"].Value, toEmail, content, "", "", document.FIleName);
 
+            }
+            else
+            {
+                SendMyMail("Tài liệu từ " + Request.Cookies["username"].Value, toEmail, content, "", "","");
             }
             e_Mess eMess = new e_Mess();
             eMess.Receiver = toEmail;

@@ -63,6 +63,7 @@ namespace DocSign.Areas.Admin.Controllers
             {
                 signature.Status = "Eable";
                 signature.CreateDate = DateTime.Now;
+                signature.CreateBy = Request.Cookies["username"].Value;
                 db.Signatures.Add(signature);
                 db.SaveChanges();
                 return RedirectToAction("Index");

@@ -108,7 +108,8 @@ namespace DocSign.Areas.Admin.Controllers
                         db.Documents.Add(doc);
                         file.SaveAs(_fileNameToSave);
                         db.SaveChanges();
-                        return View();
+                        return RedirectToAction("Document", "Documents");
+                        
                     }
                     else
                     {

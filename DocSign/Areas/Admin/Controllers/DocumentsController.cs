@@ -125,7 +125,7 @@ namespace DocSign.Areas.Admin.Controllers
             {
                 db.Entry(document).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Document");
             }
             return View(document);
         }

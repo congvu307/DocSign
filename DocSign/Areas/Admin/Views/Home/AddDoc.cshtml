@@ -1,11 +1,19 @@
 ﻿
 @{
-    ViewBag.Title = "AddDoc";
-    ViewBag.Header = "Create New Document";
-    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+                /**/
+
+                ViewBag.Title = "AddDoc";
+                ViewBag.Header = "Create New Document";
+                Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@if (@ViewBag.Message != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @ViewBag.Message
+    </div>
 }
 
-@ViewBag.Message
+
 <div class="row">
 
     @using (Html.BeginForm("AddDoc", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
@@ -23,7 +31,7 @@
         <div class="row">
             <div class="form-group col-md-4">
                 <label for="Type">Type</label>
-                <select id="Type" class="form-control"name="type">
+                <select id="Type" class="form-control" name="type">
                     <option value="Document" selected>Document</option>
                     <option value="Template">Template</option>
                 </select>
@@ -38,4 +46,4 @@
         <div>  <button type="submit" class="btn btn-outline-secondary">Tải lên</button></div>
     }
 </div>
-    <a class="btn btn-outline-primary" href="/admin/home/CreateBlankDocument"> Create New Blank Document</a>
+<a class="btn btn-outline-primary" href="/admin/home/CreateBlankDocument"> Create New Blank Document</a>

@@ -26,22 +26,13 @@
                                 @Html.DisplayNameFor(model => model.Sender)
                             </th>
                             <th>
-                                @Html.DisplayNameFor(model => model.IsRead)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.CreateBy)
-                            </th>
-                            <th>
                                 @Html.DisplayNameFor(model => model.CreateDate)
                             </th>
                             <th>
                                 @Html.DisplayNameFor(model => model.Note)
                             </th>
                             <th>
-                                @Html.DisplayNameFor(model => model.Status)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.Document.Url)
+                                @Html.DisplayNameFor(model => model.Document.FIleName)
                             </th>
                             
                         </tr>
@@ -57,20 +48,12 @@
                                     @Html.DisplayFor(modelItem => item.Sender)
                                 </td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.IsRead)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.CreateBy)
-                                </td>
-                                <td>
                                     @Html.DisplayFor(modelItem => item.CreateDate)
                                 </td>
                                 <td>
                                     @Html.DisplayFor(modelItem => item.Note)
                                 </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Status)
-                                </td>
+
                                 <td>
                                     @Html.DisplayFor(modelItem => item.Document.FIleName)
                                 </td>

@@ -19,13 +19,13 @@
                         <thead>
                             <tr>
                                 <th>
-
+                                    FileName
                                 </th>
                                 <th>
-
+                                    CreateDate
                                 </th>
                                 <th>
-
+                                    Type
                                 </th>
                                 <th></th>
                             </tr>
@@ -43,7 +43,7 @@
                                         @Html.DisplayFor(modelItem => item.CreateDate)
                                     </td>
                                     <td>
-                                        @Html.DisplayFor(modelItem => item.Note)
+                                        @Html.DisplayFor(modelItem => item.Type)
                                     </td>
                                     <td>
                                         <a href="/admin/documents/edit?id=@item.ID"><i class="fa fa-edit"></i></a>
